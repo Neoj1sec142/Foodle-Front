@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import Welcome from '../assets/welcome.svg'
+import Welcome from '../assets/programmer.jpeg'
 
 const Home = () => {
   let navigate = useNavigate()

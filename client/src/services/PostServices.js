@@ -20,6 +20,25 @@ export const GetPostDetail = async (id) => {
   }
 }
 
+export const AddPost = async (id, newPost) => {
+    try {
+        const newPost = {
+            image: 'asdfasdf',
+            description: newPost.description,
+            recipeUrl: newPost.recipeUrl,
+            rating: newPost.rating,
+            userId: id
+        }
+        await Client.post(`/posts/create/${id}`, newPost)
+        .then((res) => console.log(res, "successfully posted"))
+        .catch((err) => console.log(err))
+    } catch (error) {
+        throw error
+    } 
+}
+// export const UpdatePost = async (id) => {}
+// export const DeletePost = async (id) => {}
+
 export const AddComment = async (id, newComment) => {
   console.log(newComment, "POST api call");
   try {

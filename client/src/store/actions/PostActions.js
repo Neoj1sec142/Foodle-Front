@@ -19,4 +19,19 @@ export const LoadPosts = () => {
         }
     }
 }
+//Add a post to database
+export const UploadPost = (id, newPost) => {
+    return async (dispatch) => {
+        try {
+            await services.AddPost(id, newPost)
+            dispatch({
+                type: types.NEW_POST,
+                payload: ''
+            }) 
+        } catch (error) {
+            throw error
+        }
+    }
+}
+
 

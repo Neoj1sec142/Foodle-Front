@@ -44,7 +44,7 @@ const HomePage = (props) => {
   return (
     <div className="post-page">
       <h2>{props.postDetailState.postDetail.name}</h2>
-      <img src={props.postDetailState.postDetail.image} alt="post image" />
+      <img src={props.postDetailState.postDetail.image} alt="post_image" />
       <h5>{props.postDetailState.postDetail.location}</h5>
 
       {props.postDetailState.comments.map((comm) => (

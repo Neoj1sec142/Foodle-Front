@@ -6,7 +6,7 @@ const SignIn = (props) => {
 
   let navigate = useNavigate()
   
-  const [formValues, setFormValues] = useState({ email: '', password: '' })
+  const [formValues, setFormValues] = useState({ username: '', password: '' })
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -15,7 +15,7 @@ const SignIn = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
-    setFormValues({ email: '', password: '' })
+    setFormValues({ username: '', password: '' })
     props.setUser(payload)
     props.toggleAuthenticated(true)
     navigate('/feed')
@@ -26,13 +26,13 @@ const SignIn = (props) => {
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="username">Username:</label>
             <input
               onChange={handleChange}
-              name="email"
-              type="email"
-              placeholder="example@example.com"
-              value={formValues.email}
+              name="username"
+              type="username"
+              placeholder="jSmith123"
+              value={formValues.username}
               required
             />
           </div>
@@ -42,11 +42,12 @@ const SignIn = (props) => {
               onChange={handleChange}
               type="password"
               name="password"
+              placeholder="*****"
               value={formValues.password}
               required
             />
           </div>
-          <button disabled={!formValues.email || !formValues.password}>
+          <button disabled={!formValues.username || !formValues.password}>
             Sign In
           </button>
         </form>

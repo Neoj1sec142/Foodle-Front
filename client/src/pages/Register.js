@@ -8,6 +8,7 @@ const Register = () => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     name: '',
+    username: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -20,12 +21,14 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await RegisterUser({
-      name: formValues.name,
+      fullname: formValues.fullname,
+      username: formValues.username,
       email: formValues.email,
       password: formValues.password
     })
     setFormValues({
-      name: '',
+      fullname: '',
+      username: '',
       email: '',
       password: '',
       confirmPassword: ''
@@ -38,13 +41,24 @@ const Register = () => {
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="fullname">Name</label>
             <input
               onChange={handleChange}
-              name="name"
+              name="fullname"
               type="text"
               placeholder="John Smith"
-              value={formValues.name}
+              value={formValues.fullname}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="username">Email</label>
+            <input
+              onChange={handleChange}
+              name="username"
+              type="username"
+              placeholder="jSmith123"
+              value={formValues.username}
               required
             />
           </div>

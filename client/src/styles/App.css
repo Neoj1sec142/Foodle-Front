@@ -85,6 +85,10 @@ main {
   margin: 0 auto;
 }
 
+#title{
+  
+}
+
 .home-container button {
   padding: 0.8em 1.2em;
   background-color: var(--primary-bg);

@@ -19,7 +19,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
       <Link to="/">Home</Link>
       <Link to="/register">Register</Link>
       <Link to="/signin">Sign In</Link>
-      <Link to="/feed">Feed</Link>
+      {/* <Link to="/feed">Feed</Link> */}
     </nav>
   )
 
@@ -29,7 +29,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
         <div className="logo-wrapper" alt="logo">
           <img
             className="logo"
-            src="https://avatars.dicebear.com/api/gridy/app.svg"
+            src="https://avatars.dicebear.com/api/jdenticon/app.svg"
             alt="welcome banner"
           />
         </div>

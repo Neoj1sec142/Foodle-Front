@@ -6,6 +6,7 @@ const Home = () => {
 
   return (
     <div className="home-container col">
+      <h1 id='title'>Foodle</h1>
       <img src={Welcome} alt="welcome"/>
 
       <section className="welcome-signin">

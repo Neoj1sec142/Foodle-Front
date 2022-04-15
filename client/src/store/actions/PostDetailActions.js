@@ -1,4 +1,4 @@
-import * as services from '../../service/PostService'
+import * as services from '../../services/PostServices'
 import * as types from '../types'
 
 //Load detail of a post from server to state

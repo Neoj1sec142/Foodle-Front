@@ -4,7 +4,7 @@ import Nav from './components/Nav'
 import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 import Register from './pages/Register'
-import Feed from './pages/Feed'
+import PostPage from './pages/PostPage'
 import { CheckSession } from "./services/Auth";
 import './styles/App.css';
 
@@ -56,7 +56,7 @@ function App() {
           />
           <Route path="/register" element={<Register />} />
           <Route path="/feed"
-            element={<Feed user={user} authenticated={authenticated} />}
+            element={<PostPage user={user} authenticated={authenticated} />}
           />
         </Routes>
       </div>

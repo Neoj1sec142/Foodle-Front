@@ -34,7 +34,7 @@ recipes a sense of credibility to the recipes people post.
 ![CHD](./client/public/CHD2.png)   
 ***
 ## Enitity Relationship Diagram:
-![ERD](./client/public/ERD.png)
+![ERD](./client/public/ERD2.png)
 ***
 ## WireFrame Basic Layout Idea:
 ![WireFrame](./client/public/WireFrame.png)

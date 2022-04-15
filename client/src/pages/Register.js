@@ -41,7 +41,7 @@ const Register = () => {
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="fullname">Name</label>
+            <label htmlFor="fullname">Full Name</label>
             <input
               onChange={handleChange}
               name="fullname"
@@ -52,7 +52,7 @@ const Register = () => {
             />
           </div>
           <div className="input-wrapper">
-            <label htmlFor="username">Email</label>
+            <label htmlFor="username">Username</label>
             <input
               onChange={handleChange}
               name="username"

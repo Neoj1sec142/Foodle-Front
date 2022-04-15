@@ -7,15 +7,16 @@ import { LoadUserDetails } from '../store/actions/UserActions'
 const mapStateToProps = ({ userState }) => {
     return { userState }
   }
+  
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchUserDetail: (id) => dispatch(LoadUserDetails(id))
+        //fetchUserDetail: (id) => dispatch(LoadUserDetails(id))
     }
 }
 
 const Profile = (props) => {
     const { id } = useParams()
-
+    console.log(props.userState.user.user_id)
 
     useEffect((props) => {
         props.fetchUserDetail(id)

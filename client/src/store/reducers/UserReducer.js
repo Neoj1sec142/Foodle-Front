@@ -1,7 +1,8 @@
 const { GET_USERS, UPDATE_USER, GET_USER_DETAIL } = require('../types')
 
 const initialState = {
-    users: []
+    users: [],
+    user: {}
 }
 
 const UserReducer = (state =initialState, action) => {

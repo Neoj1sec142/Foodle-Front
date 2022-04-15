@@ -31,7 +31,7 @@ recipes a sense of credibility to the recipes people post.
 
 ***
 ## Component Heirarchy Diagram:
-![CHD](./client/public/CHD.png)   
+![CHD](./client/public/CHD2.png)   
 ***
 ## Enitity Relationship Diagram:
 ![ERD](./client/public/ERD.png)

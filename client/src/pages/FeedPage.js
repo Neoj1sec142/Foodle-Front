@@ -40,6 +40,7 @@ const HomePage = (props) => {
   const handleChange = async (e) => {
     await props.updateComment(e.target.value)
   }
+  console.log(props.userState)
 
   return (
     <div className="post-page">

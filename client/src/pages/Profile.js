@@ -9,7 +9,7 @@ const mapStateToProps = ({ userState }) => {
   }
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchUsers: (id) => dispatch(LoadUserDetails(id))
+        fetchUserDetail: (id) => dispatch(LoadUserDetails(id))
     }
 }
 
@@ -17,15 +17,15 @@ const Profile = (props) => {
     const { id } = useParams()
 
 
-    useEffect(() => {
-        props.fetchUsers(id)
+    useEffect((props) => {
+        props.fetchUserDetail(id)
       }, [id])
 
     return(
         <div className='user-profile'>
             <div className='profile-banner'>
-            <h2>{props.userState.user.username}</h2>
-            <h4>{props.userState.user.image}</h4>
+            {/* <h2>{props.userState}</h2> */}
+            {/* <h4>{props.userState.user.image}</h4> */}
             <h1> Profile Page </h1>
             </div>
 

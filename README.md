@@ -36,6 +36,9 @@ recipes a sense of credibility to the recipes people post.
 ## Enitity Relationship Diagram:
 ![ERD](./client/public/ERD.png)
 ***
+## WireFrame Basic Layout Idea:
+![WireFrame](./client/public/WireFrame.png)
+***
 ### Installs List Front End:
 *   
 

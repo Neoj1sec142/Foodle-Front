@@ -7,9 +7,9 @@ Other users will be allowed to comment on said posts and rate them
 after trying the recipe and can give it their own rating giving peoples 
 recipes a sense of credibility to the recipes people post.
 
-[Trello](https://trello.com/c/Fphk4xoz/14-screen-shot-2022-04-14-at-31858-pmpng)
-[Front End](https://github.com/Neoj1sec142/Foodle-Front)
-[Back End](https://github.com/timmellis/Foodle-Back)
+[Trello](https://trello.com/c/Fphk4xoz/14-screen-shot-2022-04-14-at-31858-pmpng)   
+[Front End](https://github.com/Neoj1sec142/Foodle-Front)   
+[Back End](https://github.com/timmellis/Foodle-Back)   
 
 ## Features:
 [] Front to Back JWT Auth   

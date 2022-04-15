@@ -40,7 +40,13 @@ recipes a sense of credibility to the recipes people post.
 ![WireFrame](./client/public/WireFrame.png)
 ***
 ### Installs List Front End:
-*   
+* axios 
+* react-redux
+* react-router-dom
+* react-stars
+* redux devtools extension
+* redux-thunk
+
 
 ***
 ### Tech Used Overall Project:

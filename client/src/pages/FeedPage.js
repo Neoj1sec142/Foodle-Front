@@ -64,6 +64,7 @@ const HomePage = (props) => {
             size={24}
             color2={'#ffd700'}
             className={'stars'}
+            half={false}
           />
           <textarea
             onChange={handleChange}

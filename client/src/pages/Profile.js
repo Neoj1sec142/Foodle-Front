@@ -2,24 +2,31 @@ import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { LoadUsers } from '../store/actions/UserActions'
-import { GetUsers } from '../services/UserServices'
+
 
 const mapStateToProps = ({ userState }) => {
     return { userState }
   }
 const mapDispatchToProps = (dispatch) => {
     return {
-        GetUsers: (id) => dispatch(LoadUsers(id))
+        fetchUsers: (id) => dispatch(LoadUsers(id))
     }
 }
 
-const Profile = () => {
+const Profile = (props) => {
     const { id } = useParams()
 
-    
+    useEffect(() => {
+        props.fetchUsers(id)
+      }, [id])
+
     return(
         <div className='user-profile'>
-
+            <div className='profile-banner'>
+            {/* <h2>{props.userState.user.username}</h2>
+            <h4>{props.userState.user.image}</h4> */}
+            <h1> Profile Page </h1>
+            </div>
 
         </div>
     )

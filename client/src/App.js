@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 import Register from './pages/Register'
 import FeedPage from './pages/FeedPage'
+import Profile from './pages/Profile'
 import { CheckSession } from "./services/Auth";
 import './styles/App.css';
 
@@ -57,6 +58,9 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/feed"
             element={<FeedPage user={user} authenticated={authenticated} />}
+          />
+          <Route path="/profile"
+            element={<Profile user={user} authenticated={authenticated} />}
           />
         </Routes>
       </div>

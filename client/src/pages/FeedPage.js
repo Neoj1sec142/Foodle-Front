@@ -43,7 +43,7 @@ const HomePage = (props) => {
   console.log(props.userState)
 
   return (
-    <div className="post-page">
+    <div className="feed-page">
       <h2>{props.postDetailState.postDetail.name}</h2>
       <img src={props.postDetailState.postDetail.image} alt="post_image" />
       <h5>{props.postDetailState.postDetail.location}</h5>

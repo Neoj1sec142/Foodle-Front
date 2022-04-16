@@ -1,26 +1,36 @@
-import { connect } from 'react-redux'
+//import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
-import { LoadUserDetails } from '../store/actions/UserActions'
+import React, { useState,useEffect } from 'react'
+//import { LoadUserDetails } from '../store/actions/UserActions'
+import { GetUsers, GetUserDetail } from '../services/UserServices'
 
 
-const mapStateToProps = ({ userState }) => {
-    return { userState }
-  }
+// const mapStateToProps = ({ userState }) => {
+//     return { userState }
+//   }
   
-const mapDispatchToProps = (dispatch) => {
-    return {
-        //fetchUserDetail: (id) => dispatch(LoadUserDetails(id))
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         //fetchUserDetail: (id) => dispatch(LoadUserDetails(id))
+//     }
+// }
 
 const Profile = (props) => {
-    const { id } = useParams()
-    console.log(props.userState.user.user_id)
 
-    useEffect((props) => {
-        props.fetchUserDetail(id)
-      }, [id])
+    const [users, setUsers] = useState([])
+    const [userDetails, setUserDetails] = useState([])
+
+
+
+
+    const { user_id } = useParams()
+    console.log(users.user_id)
+
+    useEffect((user_id) => {
+        GetUserDetail(user_id)
+        setUserDetails(user_id)
+        console.log(userDetails)
+      }, [user_id])
 
     return(
         <div className='user-profile'>
@@ -33,5 +43,5 @@ const Profile = (props) => {
         </div>
     )
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default Profile
+// export default connect(mapStateToProps, mapDispatchToProps)(Profile)

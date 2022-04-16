@@ -20,20 +20,20 @@ import * as types from '../types'
 //     }
 // }
 
-export const LoadUserDetails = (id) => {
-    return async (dispatch) => {
-        try {
-            console.log('before GET');
-            const user = await services.GetUserDetail(id)
-            console.log(user, "after GET")
-            dispatch({
-                type: types.GET_USER_DETAIL,
-                payload: user
-            })
-        } catch (err) {
-            throw err
-        }
-    }
-}
+// export const LoadUserDetails = (id) => {
+//     return async (dispatch) => {
+//         try {
+//             console.log('before GET');
+//             const user = await services.GetUserDetail(id)
+//             console.log(user, "after GET")
+//             dispatch({
+//                 type: types.GET_USER_DETAIL,
+//                 payload: user
+//             })
+//         } catch (err) {
+//             throw err
+//         }
+//     }
+// }
 
 

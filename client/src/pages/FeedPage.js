@@ -7,7 +7,6 @@ import {
 } from '../store/actions/PostDetailActions'
 import { useEffect } from 'react'
 import Comment from '../components/Comment'
-//import AddComment from '../components/AddComment'
 import { useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'
 
@@ -38,6 +37,7 @@ const HomePage = (props) => {
   }
 
   const handleChange = async (e) => {
+    await props.setComment(e.target.value)
     await props.updateComment(e.target.value)
   }
   //console.log(props.userState)
@@ -52,12 +52,6 @@ const HomePage = (props) => {
         <Comment rating={comm.rating} comment={comm.comment} key={comm._id} />
       ))}
 
-      {/* {props.postDetailState.moreComment && <AddComment 
-                            handleSubmit={handleSubmit}
-                            comment={comment}
-                            setComment={setComment}
-                             />} */}
-
       {props.postDetailState.moreComment && (
         <div>
           <ReactStars
@@ -67,6 +61,7 @@ const HomePage = (props) => {
             className={'stars'}
             half={false}
           />
+          
           <textarea
             onChange={handleChange}
             value={props.postDetailState.newComment}

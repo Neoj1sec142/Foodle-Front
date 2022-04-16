@@ -11,7 +11,7 @@ const Home = () => {
 
       <section className="welcome-signin">
         <button onClick={() => navigate('/signin')}>
-          Click Here To Sign Up
+          Click Here To Sign In
         </button>
       </section>
     </div>

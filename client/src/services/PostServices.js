@@ -29,7 +29,7 @@ export const AddPost = async (id, newPost) => {
             rating: newPost.rating,
             userId: id
         }
-        await Client.post(`/posts/create/${id}`, data)
+        await Client.post(`/create/post-${newPost._id}/user-${newPost.userId}`, data)
         .then((res) => console.log(res, "successfully posted"))
         .catch((err) => console.log(err))
     } catch (error) {
@@ -45,7 +45,7 @@ export const AddComment = async (id, newComment) => {
       const data = {
           rating: 5,
           comment: newComment,
-          postId: id
+          postId: newComment.id
       }
       console.log(data, "DATA");
       

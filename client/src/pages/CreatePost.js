@@ -28,9 +28,9 @@ const CreatePost = (props) => {
 
     useEffect((props) => {
     props.fetchPostDetail(id)
-    }, [id])
-    const handleChange = async (e) => {
-        await setNewPost(e.target.value)
+    }, [])
+    const handleChange =  (e) => {
+        setNewPost(e.target.value)
     }
 
     const handleSubmit = (e) => {
@@ -41,26 +41,27 @@ const CreatePost = (props) => {
 
     return(
         <div className="create-post">
-            {/* {props.postState.newPost && ( */}
+            {props.postState.newPost && (
             <div>
             <ReactStars
                 onChange={''}
                 size={24}
                 color2={'#ffd700'}
                 className={'stars'}
+                value={newPost.rating}
             />
-            <textarea
+            <input
                 onChange={handleChange}
                 value={newPost.image}
                 placeholder="Add a Picture"
             />
-            <textarea
+            <input
                 onChange={handleChange}
                 value={newPost.url}
                 placeholder="Include a Link"
             />
             </div>
-            {/* )} */}
+            )}
             <button onClick={handleSubmit}>
                 {props.postState.newPost ? `Send` : `Create a Post`}
             </button>

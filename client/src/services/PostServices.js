@@ -1,5 +1,6 @@
 import Client from './api'
 
+
 export const GetPosts = async () => {
   try {
       const response = await Client.get(`posts`)
@@ -22,14 +23,13 @@ export const GetPostDetail = async (id) => {
 
 export const AddPost = async (id, newPost) => {
     try {
-        const newPost = {
-            image: 'asdfasdf',
-            description: newPost.description,
-            recipeUrl: newPost.recipeUrl,
+        const data = {
+            image: newPost.image,
+            recipeUrl: newPost.url,
             rating: newPost.rating,
             userId: id
         }
-        await Client.post(`/posts/create/${id}`, newPost)
+        await Client.post(`/posts/create/${id}`, data)
         .then((res) => console.log(res, "successfully posted"))
         .catch((err) => console.log(err))
     } catch (error) {

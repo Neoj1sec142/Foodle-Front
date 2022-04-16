@@ -18,19 +18,19 @@ import { GetUsers, GetUserDetail } from '../services/UserServices'
 const Profile = (props) => {
 
     const [users, setUsers] = useState([])
-    const [userDetails, setUserDetails] = useState([])
+    //const [userDetails, setUserDetails] = useState([])
+
+    
 
 
-
-
-    const { user_id } = useParams()
+    const { id } = useParams()
     console.log(users.user_id)
 
-    useEffect((user_id) => {
-        GetUserDetail(user_id)
-        setUserDetails(user_id)
-        console.log(userDetails)
-      }, [user_id])
+    useEffect(() => {
+        GetUsers(id)
+        setUsers(id)
+        console.log(users)
+      }, [id])
 
     return(
         <div className='user-profile'>

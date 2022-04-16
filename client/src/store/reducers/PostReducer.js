@@ -1,7 +1,8 @@
 const { GET_POSTS, NEW_POST, UPDATE_POST } = require('../types')
 
 const initialState = {
-    posts: []
+    posts: [],
+    newPost: {}
 }
 
 const PostReducer = (state =initialState, action) => {

@@ -37,7 +37,7 @@ const CreatePost = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.uploadpost(id, props.postState.newPost)
+        props.uploadPost(id, props.postState.newPost)
         
     }
 

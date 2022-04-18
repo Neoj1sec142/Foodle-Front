@@ -15,8 +15,8 @@ function App() {
   const [user, setUser] = useState(null)
 
   const checkToken = async () => {
-    //console.log('hello')
     const user = await CheckSession()
+    console.log('checkToken', user)
     
     setUser(user)
     toggleAuthenticated(true)

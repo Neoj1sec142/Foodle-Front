@@ -35,45 +35,54 @@ const HomePage = (props) => {
     props.uploadComment(id, props.postDetailState.newComment)
     props.toggleMoreComment(!props.postDetailState.moreComment)
   }
-  console.log(props.postDetailState, "state")
+  //console.log(props.postDetailState, "state")
   const handleChange = async (e) => {
-    await props.setComment(e.target.value)
+    // await props.setComment(e.target.value)
     await props.updateComment(e.target.value)
   }
-  //console.log(props.userState)
+ 
+  if (props.postDetailState.postDetail.length){
 
-  return (
-    <div className="feed-page">
-      <h2>{props.postDetailState.postDetail.image}</h2>
-      <img src={props.postDetailState.postDetail.recipeUrl} alt="post_image" />
-      <h5>{props.postDetailState.postDetail.rating}</h5>
-
-      {props.postDetailState.comments.map((comm) => (
-        <Comment rating={comm.rating} comment={comm.comment} key={comm._id} />
-      ))}
-
-      {props.postDetailState.moreComment && (
-        <div>
-          <ReactStars
-            onChange={''}
-            size={24}
-            color2={'#ffd700'}
-            className={'stars'}
-            half={false}
-          />
-          
-          <textarea
-            onChange={handleChange}
-            value={props.postDetailState.newComment}
-            placeholder="Add your thoughts..."
-          />
-        </div>
-      )}
-      <button onClick={handleSubmit}>
-        {props.postDetailState.moreComment ? `Send` : `Add a comment`}
-      </button>
-    </div>
-  )
+    return (
+      <div className="feed-page">
+      
+        {/* 
+        {props.postDetailState.comments.map((comm) => (
+          <Comment rating={comm.rating} comment={comm.comment} key={comm._id} />
+        ))} */}
+        {props.postDetailState.postDetail.map((post) => (
+          <div>
+          <h2>{post.recipeUrl}</h2>
+          <img src={post.image} alt="post_image" />
+          <h5>{post.rating}</h5>
+          </div>
+        ))}
+        {props.postDetailState.moreComment && (
+          <div>
+            <ReactStars
+              onChange={''}
+              size={24}
+              color2={'#ffd700'}
+              className={'stars'}
+              half={false}
+            />
+            
+            <textarea
+              onChange={handleChange}
+              value={props.postDetailState.newComment}
+              placeholder="Add your thoughts..."
+            />
+          </div>
+        )}
+        <button onClick={handleSubmit}>
+          {props.postDetailState.moreComment ? `Send` : `Add a comment`}
+        </button>
+      </div>
+    )
+  }else{
+    return(
+      <div>Loading ...</div>
+    )
+  }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

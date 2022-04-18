@@ -58,7 +58,7 @@ const CreatePost = (props) => {
                 size={24}
                 color2={'#ffd700'}
                 className={'stars'}
-                value={newPost.rating}
+                value={props.postState.newPost.rating}
                 half={false}
             />
             <textarea
@@ -68,7 +68,7 @@ const CreatePost = (props) => {
             />
             <textarea
                 onChange={handleChange}
-                value={props.postState.newPost.url}
+                value={props.postState.newPost.recipeUrl}
                 placeholder="Include a Link"
             /> 
             </div>

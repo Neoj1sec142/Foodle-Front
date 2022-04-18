@@ -4,7 +4,7 @@ import Client from './api'
 export const GetPosts = async () => {
   try {
       const response = await Client.get(`posts`)
-      console.log(response, "RESPONSE")
+      //console.log(response, "RESPONSE")
       return response.data
   } catch (error) {
       throw error

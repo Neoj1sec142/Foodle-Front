@@ -15,9 +15,12 @@ const SignIn = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
-    setFormValues({ username: '', password: '' })
+
+    console.log("handleSubmit PAYLOAD", payload)
+    
     props.setUser(payload)
     props.toggleAuthenticated(true)
+    setFormValues({ username: '', password: '' })
     navigate('/feed')
   }
 

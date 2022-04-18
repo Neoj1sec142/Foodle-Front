@@ -5,7 +5,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   if (user) {
     authenticatedOptions = (
       <nav>
-        <h3>Welcome {user.email}!</h3>
+        <h3>Welcome {user.id}!</h3>
         <Link to="/feed">Feed</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/create">Create</Link>

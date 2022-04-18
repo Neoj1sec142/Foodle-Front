@@ -35,7 +35,7 @@ const HomePage = (props) => {
     props.uploadComment(id, props.postDetailState.newComment)
     props.toggleMoreComment(!props.postDetailState.moreComment)
   }
-
+  console.log(props.postDetailState, "state")
   const handleChange = async (e) => {
     await props.setComment(e.target.value)
     await props.updateComment(e.target.value)
@@ -44,9 +44,9 @@ const HomePage = (props) => {
 
   return (
     <div className="feed-page">
-      <h2>{props.postDetailState.postDetail.name}</h2>
-      <img src={props.postDetailState.postDetail.image} alt="post_image" />
-      <h5>{props.postDetailState.postDetail.location}</h5>
+      <h2>{props.postDetailState.postDetail.image}</h2>
+      <img src={props.postDetailState.postDetail.recipeUrl} alt="post_image" />
+      <h5>{props.postDetailState.postDetail.rating}</h5>
 
       {props.postDetailState.comments.map((comm) => (
         <Comment rating={comm.rating} comment={comm.comment} key={comm._id} />

@@ -1,84 +1,71 @@
 import React, {useState, useEffect} from 'react'
-import { connect } from 'react-redux'
-import {UploadPost} from '../store/actions/PostActions'
 import { useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'
-import AddPost from '../components/AddPost'
-
-
-const mapStateToProps = ({ postState }) => {
-    return { postState }
-  }
-  
-const mapDispatchToProps = (dispatch) => {
-    return {
-      fetchPostDetail: (id, newPost) => dispatch(UploadPost(id, newPost))
-    }
-}
+import {AddPost} from '../services/PostServices'
 
 const CreatePost = (props) => {
-    const { id } = useParams()
-
-
-    const [newPost, setNewPost] = useState({
+    console.log(props, "PROPS")
+    if (props.user){
+        const id = props.user.id
+    }
+    const [post, setPost] = useState({
         image: '',
-        url: '',
-        rating: 0
+        description: '',
+        recipeUrl: '',
+        rating: 0,
+        // userId: id
     })
-
-
-    useEffect((props) => {
-    props.fetchPostDetail(id)
-    }, [id])
-
-    const handleChange =  (e) => {
-        setNewPost(e.target.value)
+  
+    const handleChange = (e) => {
+        setPost({...post, [e.target.name]: e.target.value}) 
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.uploadPost(id, props.postState.newPost)
-        
+        AddPost(props.user.id, post) 
     }
 
     return(
         <div className="create-post">
-             {/* {props.postState.newPost && (  */}
             <div>
-                {props.postState.posts.map((post) => (
-                    <AddPost 
-                        setNewPost={setNewPost}
-                        newPost={newPost}
-                        handleSubmit={handleSubmit}
-                        handleChange={handleChange}
-                        />
-                ))}
             <ReactStars
-                onChange={''}
+                onClick={null}
                 size={24}
                 color2={'#ffd700'}
                 className={'stars'}
-                value={props.postState.newPost.rating}
+                value={post.rating}
+                name='rating'
                 half={false}
             />
             <textarea
                 onChange={handleChange}
-                value={props.postState.newPost.image}
+                value={post.image}
+                name='image'
                 placeholder="Add a Picture"
             />
             <textarea
                 onChange={handleChange}
-                value={props.postState.newPost.recipeUrl}
+                value={post.description}
+                name="description"
+                placeholder="Tell Us About It..."
+            /> 
+            <textarea
+                onChange={handleChange}
+                value={post.recipeUrl}
+                name='recipeUrl'
                 placeholder="Include a Link"
             /> 
+            
             </div>
             
             
             <button onClick={handleSubmit}>
-                {props.postState.newPost ? `Send` : `Create a Post`}
+                {post ? `Send` : `Create a Post`}
             </button>
+             
         </div>
+        
     )
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)
+export default CreatePost
+// export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)

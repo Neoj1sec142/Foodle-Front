@@ -2,6 +2,7 @@
 export const GET_POSTS = 'GET_POSTS'
 export const GET_POST_DETAIL = 'GET_POST_DETAIL'
 export const NEW_POST = 'NEW_POST' 
+export const UPDATE_POST = 'UPDATE_POST'
 // Comment Types
 export const UPDATE_NEW_COMMENT = 'UPDATE_NEW_COMMENT'
 export const POST_COMMENT = 'POST_COMMENT'

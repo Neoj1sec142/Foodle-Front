@@ -16,7 +16,7 @@ function App() {
 
   const checkToken = async () => {
     const user = await CheckSession()
-    console.log('checkToken', user)
+    //console.log('checkToken', user)
     
     setUser(user)
     toggleAuthenticated(true)
@@ -26,7 +26,7 @@ function App() {
     //Reset all auth related state and clear localStorage
     setUser(null);
     toggleAuthenticated(false);
-    // localStorage.clear();
+    localStorage.clear();
   };
 
   useEffect(() => {

@@ -21,15 +21,17 @@ export const GetPostDetail = async (id) => {
   }
 }
 
-export const AddPost = async (id, newPost) => {
+export const AddPost = async (id, post) => {
+    console.log(post, id, "BEFORE TRY")
     try {
         const data = {
-            image: newPost.image,
-            recipeUrl: newPost.url,
-            rating: newPost.rating,
+            image: post.image,
+            recipeUrl: post.recipeUrl,
+            description: post.description,
+            rating: post.rating,
             userId: id
         }
-        await Client.post(`/posts/create/${id}`, data)
+        await Client.post(`/posts/create/${id}`, data, {mode: "CORS"})
         .then((res) => console.log(res, "successfully posted"))
         .catch((err) => console.log(err))
     } catch (error) {

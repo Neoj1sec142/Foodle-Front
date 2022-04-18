@@ -43,7 +43,7 @@ const CreatePost = (props) => {
 
     return(
         <div className="create-post">
-            {props.postState.newPost && (
+             {/* {props.postState.newPost && (  */}
             <div>
                 {props.postState.posts.map((post) => (
                     <AddPost 
@@ -73,7 +73,7 @@ const CreatePost = (props) => {
             /> 
             </div>
             
-            )}
+            
             <button onClick={handleSubmit}>
                 {props.postState.newPost ? `Send` : `Create a Post`}
             </button>

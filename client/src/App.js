@@ -64,7 +64,7 @@ function App() {
           <Route path="/feed"
             element={<FeedPage user={user} authenticated={authenticated} />}
           />
-          <Route path="/profile"
+          <Route path="/profile/:username"
             element={<Profile user={user} authenticated={authenticated} />}
           />
           <Route path="/create"

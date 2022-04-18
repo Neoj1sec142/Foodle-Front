@@ -68,4 +68,3 @@ const CreatePost = (props) => {
     )
 }
 export default CreatePost
-// export default connect(mapStateToProps, mapDispatchToProps)(CreatePost)

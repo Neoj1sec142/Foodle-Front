@@ -1,8 +1,4 @@
-import Axios from 'axios'
-
-export const BASE_URL = 'http://localhost:3001'
-
-const Client = Axios.get({ baseURL: BASE_URL })
+import Client from './api'
 
 export const GetUsers = async () => {
   try {

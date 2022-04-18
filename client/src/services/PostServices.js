@@ -20,6 +20,15 @@ export const GetPostDetail = async (id) => {
       throw error
   }
 }
+export const GetPostByUserId = async (id) => {
+    try {
+        const response = await Client.get(`posts/user/${id}`)
+        // console.log(response.data, "RESPONSE for Detail")
+        return response.data
+    } catch (error) {
+        throw error
+    }
+  }
 
 export const AddPost = async (id, post) => {
     console.log(post, id, "BEFORE TRY")

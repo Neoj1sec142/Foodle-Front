@@ -1,16 +1,16 @@
 
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 // import { LoadUserDetails } from '../store/actions/UserActions'
-import { GetUserDetail } from '../services/UserServices'
+import { GetUserDetailByUsername } from '../services/UserServices'
 import { GetPostByUserId } from '../services/PostServices'
 import Post from '../components/Post'
 
 
 const Profile = (props) => {
-
-
-    const thisProfileUser = useParams.username
+    const navigate = useNavigate()
+    const params = useParams()
+    const thisProfileUser = params.username
 
     const [profileUser, setProfileUser] = useState({})
     const [posts, setPosts] = useState([])
@@ -18,49 +18,59 @@ const Profile = (props) => {
     console.log(props, "PROPS")
     
     useEffect(() => {
-        // e.prevent.default()
-        if(props.user){
+        if(thisProfileUser){
             const getUserData = async () => {
-                const data = await GetUserDetail(props.user.id) // FIX THIS
-                
+                const data = await GetUserDetailByUsername(thisProfileUser)
                 setProfileUser(data)
             }
             getUserData()
         }
-    }, [props.user])
+    }, [thisProfileUser, props.user])
 
     useEffect(() => {
-        const getPostData = async () => {
-            const posts = await GetPostByUserId(props.user.id) // FIX THIS
-            //console.log(posts)
+        const getPostsByProfileUser = async () => {
+          if (profileUser.id) {  
+            const posts = await GetPostByUserId(profileUser.id) // FIX THIS
+            console.log("GETPOSTS BY PROF USER", profileUser, posts)
             setPosts(posts)
+            }
         }
-        getPostData()
-    }, [props.user])
+        getPostsByProfileUser()
+    }, [profileUser])
     
-    console.log(posts, "BEFORE RETURN")
 
-  if (profileUser.id) {
+    const goToUpdate = () => {
+        navigate('update')
+    }
+
+
+console.log("THIS PROFILE USER", thisProfileUser)
+
+  if (profileUser.id && props.authenticated) {
     return(
         <div className='user-profile'>
             <div className='profile-wrapper'>
                 <div className='profile-banner'>
                     <div className='profile-info'>
-                    <h1> Profile Page </h1>
-                    {props.user.username = thisProfileUser ? "edit" : "no edit"}
-                    <img src={profileUser.profileImg} alt='thumbnail' />
-                    <h2>{profileUser.username}</h2>
-                    <h3>{profileUser.fullname}</h3>
-                    <h3>{profileUser.email}</h3>
+                    <h1> {profileUser.username} </h1>
+
+
+                    {/* {(props.user.username === thisProfileUser) ?
+                    <p>OKAY</p> : <p>NOT OKAY</p>} */}
+
+
+                    {props.user.username === thisProfileUser ? <button onClick={() => goToUpdate()}>
+                        
+                        Edit your profile</button> : "no edit"}
+                    <div className='profile-img-container'> 
+                        <img src={profileUser.profileImg} alt='thumbnail' />
+                    </div>
+                    <h4>Name: {profileUser.fullname}</h4>
+                    <h4>Email: {profileUser.email}</h4>
                     <p>{profileUser.profileDescription}</p> 
                     </div>
                     {posts.map((post, i) => (
-                        
-                        
                         <div className='post-container' key='i'>
-                            <img src={post.image} className='post-image' />
-                            <h5><a href={post.recipeUrl} target='_blank'>The Recipe (link)</a></h5>
-                            <p>{post.description}</p>
                             <Post post={post} />
                         </div> 
                     ))}

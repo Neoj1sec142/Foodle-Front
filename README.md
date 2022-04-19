@@ -12,21 +12,23 @@ recipes a sense of credibility to the recipes people post.
 [Back End](https://github.com/timmellis/Foodle-Back)   
 
 ## Features:
-[] Front to Back JWT Auth   
-[] Users Able to Post & Comment on other Posts   
-[] Read Access only to user posts    
-[] PostgreSQL & Sequelize Back End    
-[] React & Redux Front End   
-[] Rating System for User on their own posts   
-[] Rating system on User Comments of other user posts  
-[] Full CRUD:
-* [] Create
-* [] Read
-* [] Update
-* [] Delete  
-[] Stretch: Onclick for post should drop down of recipe   
-[] Stretch: Overall Rating on Comment System give average rating of users recipe post credibility at top of profile
-
+[x] Front to Back JWT Auth   
+[x] Users Able to Post & Comment on other Posts   
+[x] Read Access only to user posts    
+[x] PostgreSQL & Sequelize Back End    
+[x] React & Redux Front End   
+[x] Rating System for User on their own posts   
+[x] Rating system on User Comments of other user posts  
+[x] Full CRUD:
+* [x] Create
+* [x] Read
+* [x] Update
+* [x] Delete  
+[x] Stretch: Onclick for post should usenav to recipe card  
+[] Stretch: Overall Rating on Comment System give average rating of users recipe post credibility at top of profile   
+[] Stretch: Add Following abilities to users to follow pages   
+[] Stretch: Url to link to url   
+[] Stretch: 
 
 
 ***
@@ -46,7 +48,18 @@ recipes a sense of credibility to the recipes people post.
 * react-stars
 * redux devtools extension
 * redux-thunk
-
+* cors
+* react-router-dom
+***
+### Installs List Back End:
+* cors body-parser morgan 
+* dotenv
+* nodemon
+* sequelize pg
+* jsonwebtoken
+* bcrypt
+* @ngneat/falso
+* express
 
 ***
 ### Tech Used Overall Project:

@@ -5,7 +5,7 @@ const Post = ({post}) => {
 
     return (
         <div className='post-card-container' key={post.id}>
-            <Link to={`/post/${post}`} >
+            <Link to={`/details/${post.id}`} >
                 <img src={post.image} style={{maxWidth: '400px'}} alt='post img' />
                 <p>{post.description}</p>
             </Link>

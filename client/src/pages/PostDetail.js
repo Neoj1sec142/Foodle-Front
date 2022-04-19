@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { LoadPostDetail } from '../store/actions/PostActions'
 import { useEffect } from 'react'
 import Post from '../components/Post'
+import { useParams } from 'react-router-dom'
 
 
 const mapStateToProps = ({ postState }) => {
@@ -15,16 +16,17 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const PostDetail = (props) => {
-
+    let {id} = useParams()
     useEffect(() => {
-        props.fetchPosts()
-    }, [])
+        props.fetchPosts(id)
+    }, [id])
 
     return(
-        <div className='post-detail'>
-            {props.postState.posts.map((post) => (
-                <Post key={post._id} post={post} />
-            ))}
+        <div className='post-detail' >
+            {/* {props.postState.posts.map((post) => (
+                <Post post={post} />
+            ))} */}
+            <h3> {props.postState.post.title}</h3>
         </div>
     )
 }

@@ -14,7 +14,7 @@ export const GetPosts = async () => {
 export const GetPostDetail = async (id) => {
   try {
       const response = await Client.get(`posts/${id}`)
-      // console.log(response.data, "RESPONSE for Detail")
+      console.log(response.data, "RESPONSE for Detail")
       return response.data
   } catch (error) {
       throw error

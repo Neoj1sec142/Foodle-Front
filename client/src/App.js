@@ -75,7 +75,7 @@ function App() {
           <Route path="/create"
             element={<CreatePost user={user} authenticated={authenticated} />}
           />
-          <Route path="/detail/:post_id"
+          <Route path="/details/:post_id"
             element={<PostDetail user={user} authenticated={authenticated} />}
           />
         </Routes>

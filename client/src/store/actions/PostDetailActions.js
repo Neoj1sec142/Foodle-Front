@@ -16,6 +16,21 @@ export const LoadPostDetail = (id) => {
     }
 }
 
+export const LoadOnePostDetail = (id) => {
+    return async (dispatch) => {
+        try {
+            const detail = await services.GetPostDetail(id)
+            console.log(detail, "POST DETAIL")
+            dispatch({
+                type: types.GET_POST_DETAIL,
+                payload: detail
+            })            
+        } catch (error) {
+            throw error
+        }
+    }
+}
+
 //Add a comment to database
 export const UploadComment = (id, newComment) => {
     return async (dispatch) => {

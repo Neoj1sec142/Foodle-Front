@@ -1,10 +1,10 @@
 import * as services from '../../services/PostServices'
 import * as types from '../types'
 
-export const LoadPostDetail = (id) => {
+export const LoadPostDetail = (post_id) => {
     return async (dispatch) => {
         try {
-            const postDetail = await services.GetPosts(id)
+            const postDetail = await services.GetPosts(post_id)
             dispatch({
                 type: types.GET_POST_DETAIL,
                 payload: postDetail

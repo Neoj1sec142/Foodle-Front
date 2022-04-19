@@ -1,12 +1,13 @@
-const { GET_POSTS, NEW_POST, UPDATE_POST } = require('../types')
+const { GET_POSTS, NEW_POST, UPDATE_POST, GET_POST_DETAIL } = require('../types')
 
 const initialState = {
     posts: [],
+    detail: {},
     post: {
-        image: '',
-        description: '',
-        recipeUrl: '',
-        rating: 0
+        // image: '',
+        // description: '',
+        // recipeUrl: '',
+        // rating: 0
     }
 }
 
@@ -18,6 +19,8 @@ const PostReducer = (state =initialState, action) => {
             return {...state, post: action.payload}
         case UPDATE_POST:
             return {...state, post: action.payload}
+        case GET_POST_DETAIL:
+            return {...state, detail: action.payload}
         default:
             return {...state}
     }

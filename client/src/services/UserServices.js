@@ -19,6 +19,15 @@ export const GetUserDetail = async (id) => {
       throw error
   }
 }
+export const GetUserDetailByUsername = async (username) => {
+  try {
+      const response = await Client.get(`users/byusername/${username}`)
+      // console.log(response.data, "RESPONSE for User")
+      return response.data
+  } catch (error) {
+      throw error
+  }
+}
 
 export const UpdateUserProfile = async (id, userDetails) => {
   try {

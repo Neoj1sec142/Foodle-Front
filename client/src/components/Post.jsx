@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 const Post = ({post}) => {
 
     return (
-        <div className='post'>
-            <Link to={`/post/${post._id}`} >
-                <h2>{post.name}</h2>
+        <div className='post-card-container'>
+            <Link to={`/post/${post.id}`} >
+                <img src={post.image} style={{maxWidth: '400px'}} alt='post img' />
+                <p>{post.description}</p>
             </Link>
-            <img src={post.image} alt='post_image' />
         </div>
     )
 }

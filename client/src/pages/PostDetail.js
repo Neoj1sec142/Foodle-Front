@@ -42,7 +42,7 @@ const PostDetail = (props) => {
     
 
 
-    console.log(props.postState.detail, "POST STATE")
+    console.log(props.postState, "POST STATE")
     const post = props.postState.detail
 
     if (props.postState.detail.id){
@@ -52,10 +52,11 @@ const PostDetail = (props) => {
                 <Post post={post} />
             ))} */}
             <img src={post.image} style={{width: '300px'}}/>
-            <h3> {post.title}</h3>
-            <h3> {post.recipeUrl}</h3>
-            <h3> {post.rating}</h3>
-            <p>{post.description}</p>
+            <h3>Title: {post.title}</h3>
+            <h3>Url: {post.recipeUrl}</h3>
+            <h3>Rating: {post.rating}</h3>
+            <p>Description: {post.description}</p>
+            <h5>Posted by User: {post.userId}</h5>
         </div>
         )
     }else {

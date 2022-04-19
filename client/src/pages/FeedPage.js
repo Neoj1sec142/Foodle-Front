@@ -40,7 +40,7 @@ const HomePage = (props) => {
     // await props.setComment(e.target.value)
     await props.updateComment(e.target.value)
   }
- 
+ console.log(props.postDetailState, "POST DETAIL STATE")
   if (props.postDetailState.postDetail.length){
 
     return (
@@ -52,9 +52,10 @@ const HomePage = (props) => {
         ))} */}
         {props.postDetailState.postDetail.map((post, i) => (
           <div key={i}>
-            <h2>{post.recipeUrl}</h2>
+            <h2>Title: {post.title}</h2>
+            <h3>Posted by User: {post.userId}</h3>
             <img src={post.image} alt="post_image" />
-            <h5>{post.rating}</h5>
+            
             
             {props.postDetailState.moreComment && (
               <div>

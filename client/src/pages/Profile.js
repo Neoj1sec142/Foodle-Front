@@ -25,17 +25,18 @@ const Profile = (props) => {
         }
     }, [props.user])
 
-    // useEffect(() => {
-    //     const getPostData = async () => {
-    //         const posts = await GetPostByUserId(props.user.id)
-    //         //console.log(posts)
-    //         setPosts(posts)
-    //     }
-    //     getPostData()
-    // }, [props.user])
+    useEffect(() => {
+        const getPostData = async () => {
+            const posts = await GetPostByUserId(props.user.id)
+            //console.log(posts)
+            setPosts(posts)
+        }
+        getPostData()
+    }, [props.user])
     
     console.log(user, "BEFORE RETURN")
 
+  if (user.id) {
     return(
         <div className='user-profile'>
             {/* {user.map((u) => ( */}
@@ -43,9 +44,9 @@ const Profile = (props) => {
                 <div className='profile-banner'>
                     <div className='profile-info'>
                     <h1> Profile Page </h1>
-                    <h2>{user[0].fullname}</h2>
-                    <h3>{user[0].email}</h3>
-                    <h3>{user[0].username}</h3> 
+                    <h2>{user.fullname}</h2>
+                    <h3>{user.email}</h3>
+                    <h3>{user.username}</h3> 
                     </div>
                     {/* {posts.map((post) => (
                     <div>
@@ -57,5 +58,10 @@ const Profile = (props) => {
             {/* ))} */}
         </div>
     )
+  } else {
+      return (
+          <div className='loading'>Loading...</div>
+      )
+  }  
 }
 export default Profile

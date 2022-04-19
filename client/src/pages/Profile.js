@@ -70,7 +70,7 @@ console.log("THIS PROFILE USER", thisProfileUser)
                     <p>{profileUser.profileDescription}</p> 
                     </div>
                     {posts.map((post, i) => (
-                        <div className='post-container' key='i'>
+                        <div className='post-container' key={i}>
                             <Post post={post} />
                         </div> 
                     ))}

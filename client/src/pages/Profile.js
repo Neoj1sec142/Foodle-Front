@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 // import { LoadUserDetails } from '../store/actions/UserActions'
 import { GetUserDetail } from '../services/UserServices'
 import { GetPostByUserId } from '../services/PostServices'
+import Post from '../components/Post'
 
 
 const Profile = (props) => {
@@ -34,12 +35,11 @@ const Profile = (props) => {
         getPostData()
     }, [props.user])
     
-    console.log(user, "BEFORE RETURN")
+    console.log(posts, "BEFORE RETURN")
 
   if (user.id) {
     return(
         <div className='user-profile'>
-            {/* {user.map((u) => ( */}
             <div className='profile-wrapper'>
                 <div className='profile-banner'>
                     <div className='profile-info'>
@@ -48,14 +48,17 @@ const Profile = (props) => {
                     <h3>{user.email}</h3>
                     <h3>{user.username}</h3> 
                     </div>
-                    {/* {posts.map((post) => (
-                    <div>
-                        <h3>{post}</h3>
-                    </div> */}
-                    {/* ))} */}
+                    {posts.map((post, i) => (
+                        <Post post={post} />
+                        
+                        // <div className='post-container' key='i'>
+                        //     <img src={post.image} className='post-image' />
+                        //     <h5><a href={post.recipeUrl} target='_blank'>The Recipe (link)</a></h5>
+                        //     <p>{post.description}</p>
+                        // </div> 
+                    ))}
                 </div>
             </div>
-            {/* ))} */}
         </div>
     )
   } else {

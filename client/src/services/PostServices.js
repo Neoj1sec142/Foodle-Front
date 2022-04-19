@@ -28,7 +28,7 @@ export const GetPostByUserId = async (id) => {
     } catch (error) {
         throw error
     }
-  }
+}
 
 export const AddPost = async (id, post) => {
     console.log(post, id, "BEFORE TRY")

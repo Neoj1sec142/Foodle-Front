@@ -50,33 +50,35 @@ const HomePage = (props) => {
         {props.postDetailState.comments.map((comm) => (
           <Comment rating={comm.rating} comment={comm.comment} key={comm._id} />
         ))} */}
-        {props.postDetailState.postDetail.map((post) => (
-          <div>
-          <h2>{post.recipeUrl}</h2>
-          <img src={post.image} alt="post_image" />
-          <h5>{post.rating}</h5>
+        {props.postDetailState.postDetail.map((post, i) => (
+          <div key={i}>
+            <h2>{post.recipeUrl}</h2>
+            <img src={post.image} alt="post_image" />
+            <h5>{post.rating}</h5>
+            
+            {props.postDetailState.moreComment && (
+              <div>
+                <ReactStars
+                  onChange={''}
+                  size={24}
+                  color2={'#ffd700'}
+                  className={'stars'}
+                  half={false}
+                />
+                
+                <textarea
+                  onChange={handleChange}
+                  value={props.postDetailState.newComment}
+                  placeholder="Add your thoughts..."
+                />
+                
+              </div>
+            )}
+            <button onClick={handleSubmit}>
+                  {props.postDetailState.moreComment ? `Send` : `Add a comment`}
+            </button>
           </div>
         ))}
-        {props.postDetailState.moreComment && (
-          <div>
-            <ReactStars
-              onChange={''}
-              size={24}
-              color2={'#ffd700'}
-              className={'stars'}
-              half={false}
-            />
-            
-            <textarea
-              onChange={handleChange}
-              value={props.postDetailState.newComment}
-              placeholder="Add your thoughts..."
-            />
-          </div>
-        )}
-        <button onClick={handleSubmit}>
-          {props.postDetailState.moreComment ? `Send` : `Add a comment`}
-        </button>
       </div>
     )
   }else{

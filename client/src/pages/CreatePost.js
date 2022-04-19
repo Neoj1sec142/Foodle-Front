@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'
 import {AddPost} from '../services/PostServices'
 
@@ -9,39 +9,55 @@ const CreatePost = (props) => {
         const id = props.user.id
     }
     const [post, setPost] = useState({
+        title: '',
         image: '',
         description: '',
         recipeUrl: '',
-        rating: []
+        rating: 0
         // userId: id
     })
     const navigate = useNavigate()
-  
+    //const {id} = useParams()
     const handleChange = (e) => {
         setPost({...post, [e.target.name]: e.target.value}) 
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        AddPost(props.user.id, post) 
-        navigate(`/details/${post.id}`)
+        await AddPost(props.user.id, post) 
+        // const res =
+        // const data = await res.json()
+        // console.log(data)
+        navigate(`/feed`)
         setPost('')
+    }
+    const handleStars = (e) => {
+        setPost({...post, rating: e})    
     }
 
     return(
         <div className="create-post">
             <div>
                 <ReactStars
-                    onClick={null}
+                    onChange={handleStars}
                     size={24}
+                    count={5}
                     color2={'#ffd700'}
                     className={'stars'}
                     value={post.rating}
                     name='rating'
                     half={false}
                 />
-                <textarea
+                <input
                     onChange={handleChange}
+                    type='text'
+                    value={post.title}
+                    name='title'
+                    placeholder="Title Here..."
+                />
+                <input
+                    onChange={handleChange}
+                    type='text'
                     value={post.image}
                     name='image'
                     placeholder="Add a Picture"
@@ -52,8 +68,9 @@ const CreatePost = (props) => {
                     name="description"
                     placeholder="Tell Us About It..."
                 /> 
-                <textarea
+                <input
                     onChange={handleChange}
+                    type='text'
                     value={post.recipeUrl}
                     name='recipeUrl'
                     placeholder="Include a Link"

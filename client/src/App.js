@@ -6,6 +6,7 @@ import SignIn from './pages/SignIn'
 import Register from './pages/Register'
 import FeedPage from './pages/FeedPage'
 import CreatePost from './pages/CreatePost'
+import PostDetail from './pages/PostDetail'
 import Profile from './pages/Profile'
 import { CheckSession } from "./services/Auth";
 import './styles/App.css';
@@ -69,6 +70,9 @@ function App() {
           />
           <Route path="/create"
             element={<CreatePost user={user} authenticated={authenticated} />}
+          />
+          <Route path="/detail/:post_id"
+            element={<PostDetail user={user} authenticated={authenticated} />}
           />
         </Routes>
       </div>

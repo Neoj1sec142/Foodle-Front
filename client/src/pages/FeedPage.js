@@ -6,7 +6,7 @@ import {
   ToggleMoreComment
 } from '../store/actions/PostDetailActions'
 import { useEffect } from 'react'
-import Comment from '../components/Comment'
+//import Comment from '../components/Comment'
 import { useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'
 

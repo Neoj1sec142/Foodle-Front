@@ -49,14 +49,16 @@ const Profile = (props) => {
                     <h3>{user.username}</h3> 
                     </div>
                     {posts.map((post, i) => (
-                        <Post post={post} />
                         
-                        // <div className='post-container' key='i'>
-                        //     <img src={post.image} className='post-image' />
-                        //     <h5><a href={post.recipeUrl} target='_blank'>The Recipe (link)</a></h5>
-                        //     <p>{post.description}</p>
-                        // </div> 
+                        
+                        <div className='post-container' key='i'>
+                            <img src={post.image} className='post-image' />
+                            <h5><a href={post.recipeUrl} target='_blank'>The Recipe (link)</a></h5>
+                            <p>{post.description}</p>
+                            <Post post={post} />
+                        </div> 
                     ))}
+                    
                 </div>
             </div>
         </div>

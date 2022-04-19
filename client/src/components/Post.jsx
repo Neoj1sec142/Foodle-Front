@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom'
+import { DeletePost } from '../services/PostServices'
 
 const Post = ({post}) => {
 
     return (
-        <div className='post-card-container'>
-            <Link to={`/post/${post.id}`} >
+        <div className='post-card-container' key={post.id}>
+            <Link to={`/post/${post}`} >
                 <img src={post.image} style={{maxWidth: '400px'}} alt='post img' />
                 <p>{post.description}</p>
-                <button>Delete Post</button>
             </Link>
+            <button 
+                    onClick={() => {DeletePost(post.id)
+                    window.top.location.reload(true)}}
+                    key={post.id}
+            >Delete Post</button>
         </div>
     )
 }

@@ -48,7 +48,16 @@ export const AddPost = async (id, post) => {
     } 
 }
 // export const UpdatePost = async (id) => {}
-// export const DeletePost = async (id) => {}
+export const DeletePost = async (id) => {
+    // console.log(id)
+    try{
+        await Client.delete(`posts/delete/${id}`)
+        .then((res) => console.log(res, "Successfully deleted post"))
+        .catch((error) => console.log(error))
+    } catch (err) {
+        throw err
+    }
+}
 
 export const AddComment = async (id, newComment) => {
   console.log(newComment, "POST api call");

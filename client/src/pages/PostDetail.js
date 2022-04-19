@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { LoadPosts } from '../store/actions/PostActions'
+import { LoadPostDetail } from '../store/actions/PostActions'
 import { useEffect } from 'react'
 import Post from '../components/Post'
 
@@ -10,7 +10,7 @@ const mapStateToProps = ({ postState }) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchPosts: () => dispatch(LoadPosts())
+        fetchPosts: (id) => dispatch(LoadPostDetail(id))
     }
 }
 

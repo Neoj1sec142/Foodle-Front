@@ -7,6 +7,7 @@ const Post = ({post}) => {
             <Link to={`/post/${post.id}`} >
                 <img src={post.image} style={{maxWidth: '400px'}} alt='post img' />
                 <p>{post.description}</p>
+                <button>Delete Post</button>
             </Link>
         </div>
     )

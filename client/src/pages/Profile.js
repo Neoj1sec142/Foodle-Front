@@ -8,8 +8,11 @@ import Post from '../components/Post'
 
 
 const Profile = (props) => {
-     
-    const [user, setUser] = useState({})
+
+
+    const thisProfileUser = useParams.username
+
+    const [profileUser, setProfileUser] = useState({})
     const [posts, setPosts] = useState([])
     
     console.log(props, "PROPS")
@@ -18,9 +21,9 @@ const Profile = (props) => {
         // e.prevent.default()
         if(props.user){
             const getUserData = async () => {
-                const data = await GetUserDetail(props.user.id)
+                const data = await GetUserDetail(props.user.id) // FIX THIS
                 
-                setUser(data)
+                setProfileUser(data)
             }
             getUserData()
         }
@@ -28,7 +31,7 @@ const Profile = (props) => {
 
     useEffect(() => {
         const getPostData = async () => {
-            const posts = await GetPostByUserId(props.user.id)
+            const posts = await GetPostByUserId(props.user.id) // FIX THIS
             //console.log(posts)
             setPosts(posts)
         }
@@ -37,16 +40,19 @@ const Profile = (props) => {
     
     console.log(posts, "BEFORE RETURN")
 
-  if (user.id) {
+  if (profileUser.id) {
     return(
         <div className='user-profile'>
             <div className='profile-wrapper'>
                 <div className='profile-banner'>
                     <div className='profile-info'>
                     <h1> Profile Page </h1>
-                    <h2>{user.fullname}</h2>
-                    <h3>{user.email}</h3>
-                    <h3>{user.username}</h3> 
+                    {props.user.username = thisProfileUser ? "edit" : "no edit"}
+                    <img src={profileUser.profileImg} alt='thumbnail' />
+                    <h2>{profileUser.username}</h2>
+                    <h3>{profileUser.fullname}</h3>
+                    <h3>{profileUser.email}</h3>
+                    <p>{profileUser.profileDescription}</p> 
                     </div>
                     {posts.map((post, i) => (
                         

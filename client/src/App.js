@@ -8,6 +8,7 @@ import FeedPage from './pages/FeedPage'
 import CreatePost from './pages/CreatePost'
 import PostDetail from './pages/PostDetail'
 import Profile from './pages/Profile'
+import ProfileUpdate from './pages/ProfileUpdate'
 import { CheckSession } from "./services/Auth";
 import './styles/App.css';
 
@@ -67,6 +68,9 @@ function App() {
           />
           <Route path="/profile/:username"
             element={<Profile user={user} authenticated={authenticated} />}
+          />
+          <Route path="/profile/:username/update"
+            element={<ProfileUpdate user={user} authenticated={authenticated} />}
           />
           <Route path="/create"
             element={<CreatePost user={user} authenticated={authenticated} />}

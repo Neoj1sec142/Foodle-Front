@@ -20,6 +20,7 @@ const CreatePost = (props) => {
     //const {id} = useParams()
     const handleChange = (e) => {
         setPost({...post, [e.target.name]: e.target.value}) 
+        console.log(post)
     }
 
     const handleSubmit = async (e) => {

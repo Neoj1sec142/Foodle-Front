@@ -34,6 +34,7 @@ export const AddPost = async (id, post) => {
     console.log(post, id, "BEFORE TRY")
     try {
         const data = {
+            title: post.title,
             image: post.image,
             recipeUrl: post.recipeUrl,
             description: post.description,

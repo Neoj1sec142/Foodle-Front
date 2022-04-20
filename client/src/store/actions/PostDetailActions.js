@@ -20,7 +20,7 @@ export const LoadOnePostDetail = (id) => {
     return async (dispatch) => {
         try {
             const detail = await services.GetPostDetail(id)
-            console.log(detail, "POST DETAIL")
+            //console.log(detail, "POST DETAIL")
             dispatch({
                 type: types.GET_POST_DETAIL,
                 payload: detail

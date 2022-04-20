@@ -65,10 +65,10 @@ const Profile = (props) => {
     
     console.log("THIS PROFILE USER", thisProfileUser)
     
-    if (profileUser.id && props.authenticated) {
-      console.log("FOLLOWERS:", followers)
+    if (props.authenticated && profileUser.id && posts.length && followers.length && following.length) {
+    //   console.log("FOLLOWERS:", followers)
       const myFollowers = followers[0].followers
-      console.log("FOLLOWING:", following)
+    //   console.log("FOLLOWING:", following)
       const amFollowing = following[0].following
     return(
         <div className='user-profile'>
@@ -80,14 +80,16 @@ const Profile = (props) => {
                         </div>
                         <div className='profile-info-container'>
                             <h1> {profileUser.username} </h1>
-                            {props.user.username === thisProfileUser 
-                                ? <button onClick={() => goToUpdate()}>Edit your profile</button> 
-                                : "Follow button here"}
                             <h4>Name: {profileUser.fullname}</h4>
                             <h4>Email: {profileUser.email}</h4>
                             <p>{profileUser.profileDescription}</p> 
-                            <span> Followers: {myFollowers.length} </span> 
+                            <div>
+                                <span> Followers: {myFollowers.length} </span> 
                              | <span> Following: {amFollowing.length} </span>
+                            </div>
+                            {props.user.username === thisProfileUser 
+                                ? <button onClick={() => goToUpdate()}>Edit your profile</button> 
+                                : "Follow button here"}
                         </div>
                     </div>
                     {posts.map((post, i) => (

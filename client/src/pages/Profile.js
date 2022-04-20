@@ -2,7 +2,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 // import { LoadUserDetails } from '../store/actions/UserActions'
-import { GetUserDetailByUsername } from '../services/UserServices'
+import { GetUserDetailByUsername, GetFollowersByUserId, GetFollowingByFollowerId } from '../services/UserServices'
 import { GetPostByUserId } from '../services/PostServices'
 import Post from '../components/Post'
 
@@ -14,6 +14,8 @@ const Profile = (props) => {
 
     const [profileUser, setProfileUser] = useState({})
     const [posts, setPosts] = useState([])
+    const [followers, setFollowers] = useState({})
+    const [following, setFollowing] = useState({})
     
     console.log(props, "PROPS")
     
@@ -31,43 +33,62 @@ const Profile = (props) => {
         const getPostsByProfileUser = async () => {
           if (profileUser.id) {  
             const posts = await GetPostByUserId(profileUser.id) // FIX THIS
-            console.log("GETPOSTS BY PROF USER", profileUser, posts)
+            // console.log("GETPOSTS BY PROF USER", profileUser, posts)
             setPosts(posts)
             }
         }
+        console.log("ID", profileUser.id)
+        const getFollowers = async () => {
+            if (profileUser.id) {
+                const followMe = await GetFollowersByUserId(profileUser.id)
+                setFollowers(followMe)
+            }
+        }
+        const getFollowing = async () => {
+            if (profileUser.id) {
+                const amFollowing = await GetFollowingByFollowerId(profileUser.id)
+                setFollowing(amFollowing)
+            }
+        }
+
         getPostsByProfileUser()
+        getFollowers()
+        getFollowing()
+        
     }, [profileUser])
     
-
+    
     const goToUpdate = () => {
         navigate('update')
     }
-
-
-console.log("THIS PROFILE USER", thisProfileUser)
-
-  if (profileUser.id && props.authenticated) {
+    
+    
+    console.log("THIS PROFILE USER", thisProfileUser)
+    
+    if (profileUser.id && props.authenticated) {
+      console.log("FOLLOWERS:", followers)
+      const myFollowers = followers[0].followers
+      console.log("FOLLOWING:", following)
+      const amFollowing = following[0].following
     return(
         <div className='user-profile'>
             <div className='profile-wrapper'>
                 <div className='profile-banner'>
                     <div className='profile-info'>
-                    <h1> {profileUser.username} </h1>
-
-
-                    {/* {(props.user.username === thisProfileUser) ?
-                    <p>OKAY</p> : <p>NOT OKAY</p>} */}
-
-
-                    {props.user.username === thisProfileUser ? <button onClick={() => goToUpdate()}>
-                        
-                        Edit your profile</button> : "no edit"}
-                    <div className='profile-img-container'> 
-                        <img src={profileUser.profileImg} alt='thumbnail' />
-                    </div>
-                    <h4>Name: {profileUser.fullname}</h4>
-                    <h4>Email: {profileUser.email}</h4>
-                    <p>{profileUser.profileDescription}</p> 
+                        <div className='profile-img-container'> 
+                            <img src={profileUser.profileImg} alt='thumbnail' />
+                        </div>
+                        <div className='profile-info-container'>
+                            <h1> {profileUser.username} </h1>
+                            {props.user.username === thisProfileUser 
+                                ? <button onClick={() => goToUpdate()}>Edit your profile</button> 
+                                : "Follow button here"}
+                            <h4>Name: {profileUser.fullname}</h4>
+                            <h4>Email: {profileUser.email}</h4>
+                            <p>{profileUser.profileDescription}</p> 
+                            <span> Followers: {myFollowers.length} </span> 
+                             | <span> Following: {amFollowing.length} </span>
+                        </div>
                     </div>
                     {posts.map((post, i) => (
                         <div className='post-container' key={i}>

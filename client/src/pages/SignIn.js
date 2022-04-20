@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { SignInUser } from '../services/Auth'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const SignIn = (props) => {
 
@@ -53,6 +53,7 @@ const SignIn = (props) => {
           <button disabled={!formValues.username || !formValues.password}>
             Sign In
           </button>
+          <h5>Dont Have an Account? <Link to={'/register'}>Click to Register</Link></h5>
         </form>
       </div>
     </div>

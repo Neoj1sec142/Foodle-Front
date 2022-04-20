@@ -8,6 +8,10 @@
   --primary-button-hover: #160c28;
 }
 
+html, * {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
@@ -110,6 +114,9 @@ main {
   color: white;
 }
 
+
+/* *** PROFILE PAGE *** */
+
 .user-profile{
   background-image: url('../assets/pastel-background.jpeg');
   background-size: cover;
@@ -120,14 +127,31 @@ main {
   padding-right: 2em;
   padding-left: 2em;
   border: 5px solid black;
-  margin-left: 5%;
-  margin-right: 25%;
+  margin: 0 auto;
 }
 
 .profile-info{
-  padding-inline: 5px;
+  margin: 4px auto;
+  padding: 10px;
   border: 3px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
+.profile-img-container {
+  margin: 4px;
+  flex: 25;
+}
+.profile-info-container {
+  margin: 4px;
+  flex: 75;
+}
+.profile-info h1, .profile-info h2, .profile-info h4, .profile-info p {
+  margin-top: 0;
+}
+
 
 #title{
   

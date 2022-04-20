@@ -55,3 +55,21 @@ export const GetFollowingByFollowerId = async (id) => {
     throw error
   }
 }
+
+export const FollowUser = async (id, follower_id) => {
+  try{
+    const follower = await Client.post(`userfollowers/follow/${id}/follower/${follower_id}`)
+    return follower.data
+  } catch (err) {
+    throw err
+  }
+}
+
+export const UnfollowUser = async (id, follower_id) => {
+  try{
+    const follower = await Client.delete(`userfollowers/unfollow/${id}/follower/${follower_id}`)
+    return follower.data
+  } catch (err) {
+    throw err
+  }
+}

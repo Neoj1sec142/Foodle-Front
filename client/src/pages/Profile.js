@@ -2,7 +2,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 // import { LoadUserDetails } from '../store/actions/UserActions'
-import { GetUserDetailByUsername, GetFollowersByUserId, GetFollowingByFollowerId } from '../services/UserServices'
+import { GetUserDetailByUsername, GetFollowersByUserId, GetFollowingByFollowerId, FollowUser, UnfollowUser } from '../services/UserServices'
 import { GetPostByUserId } from '../services/PostServices'
 import Post from '../components/Post'
 import { DeletePost } from '../services/PostServices'
@@ -18,7 +18,7 @@ const Profile = (props) => {
     const [followers, setFollowers] = useState({})
     const [following, setFollowing] = useState({})
     
-    console.log(props, "PROPS")
+    //console.log(props, "PROPS")
     
     useEffect(() => {
         if(thisProfileUser){
@@ -51,6 +51,7 @@ const Profile = (props) => {
                 setFollowing(amFollowing)
             }
         }
+        
 
         getPostsByProfileUser()
         getFollowers()
@@ -70,13 +71,25 @@ const Profile = (props) => {
         }
     }
     
-    console.log("THIS PROFILE USER", thisProfileUser)
+
+    
+
+    //console.log("THIS PROFILE USER", thisProfileUser)
     
     if (props.authenticated && profileUser.id && posts.length && followers.length && following.length) {
-    //   console.log("FOLLOWERS:", followers)
+      console.log("FOLLOWERS:", followers)
       const myFollowers = followers[0].followers
-    //   console.log("FOLLOWING:", following)
+       console.log("FOLLOWING:", following)
       const amFollowing = following[0].following
+      const followUser = (e) => {
+        if (myFollowers.filter((follower) => follower.id === props.user.id).length === 0 ){
+            FollowUser(profileUser.id, props.user.id)
+            window.top.location.reload(true)
+        }else{
+            UnfollowUser(profileUser.id, props.user.id)
+            window.top.location.reload(true)
+        }
+    }
     return(
         <div className='user-profile'>
             <div className='profile-wrapper'>
@@ -96,7 +109,7 @@ const Profile = (props) => {
                             </div>
                             {props.user.username === thisProfileUser 
                                 ? <button onClick={() => goToUpdate()}>Edit your profile</button> 
-                                : "Follow button here"}
+                                : <button onClick={(e) => followUser(e)}>Follow</button>}
                         </div>
                     </div>
                     {posts.map((post, i) => (

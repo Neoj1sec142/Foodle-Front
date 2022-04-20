@@ -22,8 +22,6 @@ const HomePage = (props) => {
   }, [id])
 
   
-  
- console.log(props.postDetailState, "POST DETAIL STATE")
   if (props.postDetailState.postDetail.length){
 
     return (

@@ -117,7 +117,7 @@ const Profile = (props) => {
                             <Post post={post} />
 
                             {props.user.username === thisProfileUser && 
-                                <button onClick={() => handleDelete(post.id)}>Delete Post</button>
+                                <button onClick={() => handleDelete(post.id)}>❌ Delete</button>
                             }
                         </div> 
                     ))}

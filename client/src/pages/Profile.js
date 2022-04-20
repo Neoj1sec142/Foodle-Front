@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { GetUserDetailByUsername, GetFollowersByUserId, GetFollowingByFollowerId } from '../services/UserServices'
 import { GetPostByUserId } from '../services/PostServices'
 import Post from '../components/Post'
+import { DeletePost } from '../services/PostServices'
 
 
 const Profile = (props) => {
@@ -62,6 +63,12 @@ const Profile = (props) => {
         navigate('update')
     }
     
+    const handleDelete = (id) => {
+        if (window.confirm("Are you sure you want to delete?")) { 
+            DeletePost(id)
+            window.top.location.reload(true)
+        }
+    }
     
     console.log("THIS PROFILE USER", thisProfileUser)
     
@@ -95,6 +102,10 @@ const Profile = (props) => {
                     {posts.map((post, i) => (
                         <div className='post-container' key={i}>
                             <Post post={post} />
+                            <button 
+                    onClick={() => handleDelete(post.id)}
+                    key={post.id}
+            >Delete Post</button>
                         </div> 
                     ))}
                     

@@ -34,6 +34,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
             src="https://avatars.dicebear.com/api/jdenticon/app.svg"
             alt="welcome banner"
           />
+          {/* <img src="../assets/food-icon.png" alt="banner" /> */}
         </div>
       </Link>
       <div className="Foodle-header">

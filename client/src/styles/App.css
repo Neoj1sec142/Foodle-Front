@@ -6,7 +6,7 @@
   --link-color-primary: #1d201f;
   --secondary-bg: #e1efe6;
   --link-color-secondary: #e1efe6;
-  --primary-button-hover: #160c28;
+  --primary-button-hover: #3c7d79;
 }
 
 html, * {
@@ -100,74 +100,6 @@ main {
   margin: 0 auto;
 }
 
-.feed-page {
-  background-image: url('../assets/feed-background.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 90%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-.create-post {
-  background-image: url('../assets/food-background.jpeg');
-  opacity: 60%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-
-/* *** PROFILE PAGE *** */
-
-.user-profile{
-  background-image: url('../assets/pastel-background.jpeg');
-  background-size: cover;
-}
-
-.profile-wrapper{
-  width: 80%;
-  padding-right: 2em;
-  padding-left: 2em;
-  border: 5px solid black;
-  margin: 0 auto;
-}
-
-.profile-info{
-  margin: 4px auto;
-  padding: 10px;
-  border: 3px solid black;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-.profile-img-container {
-  margin: 4px;
-  flex: 25;
-}
-.profile-info-container {
-  margin: 4px;
-  flex: 75;
-}
-.profile-info h1, .profile-info h2, .profile-info h4, .profile-info p {
-  margin-top: 0;
-}
-
-
-#title{
-  
-}
-
 .home-container button {
   padding: 0.8em 1.2em;
   background-color: var(--primary-bg);
@@ -187,6 +119,12 @@ main {
   padding: 1em;
   border-radius: 8px;
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+  /* background-color: rgba(255,255,255,1); */
+  background: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%);
+}
+
+.welcome-card {
+
 }
 
 form,
@@ -268,3 +206,73 @@ form button:disabled {
   height: 80vh;
 }
 
+
+
+/* *** FEED PAGE *** */
+
+.feed-page {
+  background-image: url('../assets/feed-background.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 90%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+
+/* *** PROFILE PAGE *** */
+
+.user-profile{
+  background-image: url('../assets/pastel-background.jpeg');
+  background-size: cover;
+}
+
+.profile-wrapper{
+  width: 80%;
+  padding-right: 2em;
+  padding-left: 2em;
+  border: 5px solid black;
+  margin: 0 auto;
+}
+
+.profile-info{
+  margin: 4px auto;
+  padding: 10px;
+  border: 3px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.profile-img-container {
+  margin: 4px;
+  flex: 25;
+}
+.profile-info-container {
+  margin: 4px;
+  flex: 75;
+}
+.profile-info h1, .profile-info h2, .profile-info h4, .profile-info p {
+  margin-top: 0;
+}
+
+
+/* *** CREATE NEW POST *** */
+.create-post {
+  background-image: url('../assets/food-background.jpeg');
+  opacity: 60%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}

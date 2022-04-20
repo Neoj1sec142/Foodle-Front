@@ -37,3 +37,21 @@ export const UpdateUserProfile = async (id, userDetails) => {
     throw error
   }
 }
+
+
+export const GetFollowersByUserId = async (id) => {
+  try {
+    const response = await Client.get(`userfollowers/followers/${id}`)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+export const GetFollowingByFollowerId = async (id) => {
+  try {
+    const response = await Client.get(`userfollowers/following/${id}`)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}

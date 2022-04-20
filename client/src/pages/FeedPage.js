@@ -3,6 +3,7 @@ import {LoadPostDetail} from '../store/actions/PostDetailActions'
 import { useEffect } from 'react'
 //import Comment from '../components/Comment'
 import { useParams, Link } from 'react-router-dom'
+import Post from '../components/Post'
 
 
 const mapStateToProps = ({ postDetailState }) => {
@@ -32,9 +33,8 @@ const HomePage = (props) => {
         {props.postDetailState.postDetail.map((post, i) => (
           <div key={i}>
             {/* {console.log(post, "POSTS")} */}
-            <h2>Title: {post.title}</h2>
             <Link to={`/profile/${post.User.username}`}>Posted By:{post.User.profileImg} {post.User.username}</Link>
-            <img src={post.image} alt="post_image" />
+            <Post post={post} />
           </div>
         ))}
       </div>

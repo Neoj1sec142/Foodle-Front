@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
 
 :root {
   --primary-bg: #f89224;
@@ -49,6 +50,13 @@ nav {
   margin-right: 1em;
   display: flex;
 }
+.Foodle-header {
+  font-family: 'Ms Madi', cursive;
+  font-size: 25px;
+}
+
+
+
 
 nav a,
 nav h3 {
@@ -79,9 +87,12 @@ main {
 
 .home-container,
 .signin {
-  min-height: calc(100vh - 4em);
+  min-height: calc(100vh - 4em); 
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
+  background-image: url('../assets/foodle-background.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .home-container img {
@@ -256,3 +267,4 @@ form button:disabled {
   align-items: center;
   height: 80vh;
 }
+

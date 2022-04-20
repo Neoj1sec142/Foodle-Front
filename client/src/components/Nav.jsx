@@ -5,7 +5,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
   if (user) {
     authenticatedOptions = (
       <nav>
-        <h3>Welcome {user.username}!</h3>
+        <h3>Logged in as {user.username}!</h3>
         <Link to="/feed">Feed</Link>
         {/* <Link to={`/detail/`}>Details</Link> */}
         <Link to={`/profile/${user.username}`}>Profile</Link>
@@ -36,6 +36,9 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
           />
         </div>
       </Link>
+      <div className="Foodle-header">
+          <h1>Foodle</h1> 
+        </div>
       {authenticated && user ? authenticatedOptions : publicOptions}
     </header>
   )

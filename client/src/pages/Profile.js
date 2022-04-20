@@ -102,10 +102,10 @@ const Profile = (props) => {
                     {posts.map((post, i) => (
                         <div className='post-container' key={i}>
                             <Post post={post} />
-                            <button 
-                    onClick={() => handleDelete(post.id)}
-                    key={post.id}
-            >Delete Post</button>
+
+                            {props.user.username === thisProfileUser && 
+                                <button onClick={() => handleDelete(post.id)}>Delete Post</button>
+                            }
                         </div> 
                     ))}
                     

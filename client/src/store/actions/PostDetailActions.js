@@ -32,13 +32,13 @@ export const LoadOnePostDetail = (id) => {
 }
 
 //Add a comment to database
-export const UploadComment = (id, newComment) => {
+export const UploadComment = (user_id, post_id, newComment) => {
     return async (dispatch) => {
         try {
-            await services.AddComment(id, newComment)
+            await services.AddComment(user_id, post_id, newComment)
             dispatch({
                 type: types.POST_COMMENT,
-                payload: ''
+                payload: newComment
             }) 
         } catch (error) {
             throw error

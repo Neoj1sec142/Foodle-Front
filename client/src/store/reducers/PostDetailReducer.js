@@ -3,7 +3,10 @@ const { GET_POST_DETAIL,POST_COMMENT, TOGGLE_MORE_COMMENT, UPDATE_NEW_COMMENT } 
 const initialState = {
     postDetail: {},
     comments: [],
-    newComment: '',
+    newComment: {
+        comment: '',
+        rating: 0
+    },
     moreComment: false
 }
 

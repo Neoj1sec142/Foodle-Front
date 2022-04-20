@@ -60,17 +60,16 @@ export const DeletePost = async (id) => {
     }
 }
 
-export const AddComment = async (id, newComment) => {
-  console.log(newComment, "POST api call");
+export const AddComment = async (user_id, post_id, newComment) => {
+  console.log(user_id, post_id, newComment, "POST api call");
   try {
       const data = {
-          rating: 5,
-          comment: newComment,
-          postId: newComment.id
+          rating: newComment.rating,
+          comment: newComment.comment
       }
       console.log(data, "DATA");
       
-      await Client.post(`comment/${id}`, data)
+      await Client.post(`comments/create/post-${post_id}/user-${user_id}`, data)
       .then((res) => console.log(res, "Successfully add a comment"))
       .catch((error) => console.log(error))
   } catch (error) {

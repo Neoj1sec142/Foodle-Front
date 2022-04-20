@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
         fetchPostDetail: (id) => dispatch(LoadPostDetail(id)),
         fetchOnePostDetail: (id) => dispatch(LoadOnePostDetail(id)),
         updatePostState: (id) => dispatch(LoadPosts(id)),
-        uploadComment: (id, newComment) => dispatch(UploadComment(id, newComment)),
+        uploadComment: (user_id, post_id, newComment) => dispatch(UploadComment(user_id, post_id, newComment)),
         updateComment: (comment) => dispatch(UpdateComment(comment)),
         toggleMoreComment: (value) => dispatch(ToggleMoreComment(value))
     }
@@ -41,29 +41,40 @@ const PostDetail = (props) => {
     }, [post_id])
 
     //for postDetailState
-    useEffect(() => {
-        props.fetchPostDetail(post_id)
-    }, [post_id])
+    // useEffect(() => {
+    //     const GetPostDetail = async () => {
+    //         await props.fetchPostDetail(post_id)
+    //     }
+    //     GetPostDetail()
+    // }, [post_id])
     
     const handleSubmit = (e) => {
+        const user_id = props.user.id
+        console.log(user_id)
         e.preventDefault()
-        props.uploadComment(post_id, props.postDetailState.newComment)
+        props.uploadComment(user_id, post_id, props.postDetailState.newComment)
         props.toggleMoreComment(!props.postDetailState.moreComment)
     }
     
     const handleChange = async (e) => {
-        await props.updateComment(e.target.value)
+        const newComment = props.postDetailState.newComment
+        await props.updateComment({...newComment, [e.target.name]: e.target.value })
+        console.log(newComment)
     }
     
-    console.log(props.postDetailState, "POST DETAIL STATE")
-    const post = props.postState.detail
-
-    if (props.postState.detail.id){
+    //console.log(props.user, "user")
+    const post = props.postDetailState.postDetail
+    // console.log(post, "POST")
+    if (post.id){
     return(
         <div className='post-detail' >
             {/* {props.postState.posts.map((post) => (
                 <Post post={post} />
             ))} */}
+             {/* 
+                {props.postDetailState.comments.map((comm) => (
+                <Comment rating={comm.rating} comment={comm.comment} key={comm._id} />
+                ))} */}
             <img src={post.image} style={{width: '300px'}}/>
             <h3>Title: {post.title}</h3>
             <h3>Url: {post.recipeUrl}</h3>
@@ -78,10 +89,13 @@ const PostDetail = (props) => {
                         color2={'#ffd700'}
                         className={'stars'}
                         half={false}
+                        name='rating'
+                        value={props.postDetailState.newComment.rating}
                     />
                     <textarea 
                         onChange={handleChange}
-                        value={props.postDetailState.newComment}
+                        name='comment'
+                        value={props.postDetailState.newComment.comment}
                         placeholder="Add your thoughts..."
                     />
                 </div>

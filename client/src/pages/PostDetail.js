@@ -8,7 +8,7 @@ import {
   } from '../store/actions/PostDetailActions'
 import {LoadPosts} from '../store/actions/PostActions' 
 import { useEffect } from 'react'
-//import Post from '../components/Post'
+import Comment from '../components/Comment'
 import { useParams } from 'react-router-dom'
 import ReactStars from 'react-stars'
 
@@ -50,42 +50,50 @@ const PostDetail = (props) => {
     
     const handleSubmit = (e) => {
         const user_id = props.user.id
-        console.log(user_id)
+        //console.log(user_id)
         e.preventDefault()
-        props.uploadComment(user_id, post_id, props.postDetailState.newComment)
+        if (props.postDetailState.moreComment){
+            props.uploadComment(user_id, post_id, props.postDetailState.newComment)
+            window.top.location.reload(true)
+        }
         props.toggleMoreComment(!props.postDetailState.moreComment)
     }
     
     const handleChange = async (e) => {
         const newComment = props.postDetailState.newComment
         await props.updateComment({...newComment, [e.target.name]: e.target.value })
-        console.log(newComment)
+        //console.log(newComment)
+    }
+    const handleStars = async (e) => {
+        const newComment = props.postDetailState.newComment
+        await props.updateComment({...newComment, rating: e})
     }
     
     //console.log(props.user, "user")
     const post = props.postDetailState.postDetail
-    // console.log(post, "POST")
+    console.log(props.postDetailState.postDetail.Comments, "POST DETAIL STATE")
     if (post.id){
     return(
         <div className='post-detail' >
-            {/* {props.postState.posts.map((post) => (
-                <Post post={post} />
-            ))} */}
-             {/* 
-                {props.postDetailState.comments.map((comm) => (
-                <Comment rating={comm.rating} comment={comm.comment} key={comm._id} />
-                ))} */}
+            
             <img src={post.image} style={{width: '300px'}}/>
             <h3>Title: {post.title}</h3>
             <h3>Url: {post.recipeUrl}</h3>
             <h3>Rating: {post.rating}</h3>
             <p>Description: {post.description}</p>
-            <h5>Posted by User: {post.userId}</h5>
+            <h5>Posted by User: {post.userId}</h5> 
+            <div>
+                {props.postDetailState.postDetail.Comments.map((comm) => (
+                    <Comment commentor={comm.User.username}rating={comm.rating} comment={comm.comment} key={comm.id} /> 
+                    
+                ))} 
+            </div>
             {props.postDetailState.moreComment && (
                 <div>
                     <ReactStars
-                        onChange={''}
+                        onChange={handleStars}
                         size={24}
+                        count={5}
                         color2={'#ffd700'}
                         className={'stars'}
                         half={false}
@@ -100,7 +108,7 @@ const PostDetail = (props) => {
                     />
                 </div>
             )}
-            <button onClick={handleSubmit}>
+            <button onClick={(e)=> handleSubmit(e)}>
                 {props.postDetailState.moreComment ? 'Send' : 'Add a Comment'}
             </button>
         </div>

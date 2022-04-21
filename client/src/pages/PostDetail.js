@@ -75,18 +75,19 @@ const PostDetail = (props) => {
     if (post.id){
     return(
         <div className='post-detail' >
-            
-            <img src={post.image} style={{width: '300px'}}/>
-            <h3>Title: {post.title}</h3>
-            <h3>Url: {post.recipeUrl}</h3>
-            <h3>Rating: {post.rating}</h3>
-            <p>Description: {post.description}</p>
-            <h5>Posted by User: {post.userId}</h5> 
-            <div>
-                {props.postDetailState.postDetail.Comments.map((comm) => (
-                    <Comment commentor={comm.User.username}rating={comm.rating} comment={comm.comment} key={comm.id} /> 
-                    
-                ))} 
+            <div className='click-card'>
+                <img src={post.image} style={{width: '300px'}}/>
+                <h3>Title: {post.title}</h3>
+                <h3>Url: {post.recipeUrl}</h3>
+                <h3>Rating: {post.rating}</h3>
+                <p>Description: {post.description}</p>
+                <h5>Posted by User: {post.userId}</h5> 
+                <div className='comment-map'>
+                    {props.postDetailState.postDetail.Comments.map((comm) => (
+                        <Comment commentor={comm.User.username}rating={comm.rating} comment={comm.comment} key={comm.id} /> 
+                        
+                    ))} 
+                </div>
             </div>
             {props.postDetailState.moreComment && (
                 <div>

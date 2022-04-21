@@ -119,12 +119,12 @@ main {
 
 .card-overlay {
   /* border: 2px solid var(--primary-button-hover); */
-  width: 60%;
+  /* width: 60%;
   padding: 1em;
   border-radius: 8px;
-  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3); */
   /* background-color: rgba(255,255,255,1); */
-  background: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%);
+  /* background: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%); */
 }
 
 form,
@@ -341,4 +341,5 @@ form button:disabled {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+
 }

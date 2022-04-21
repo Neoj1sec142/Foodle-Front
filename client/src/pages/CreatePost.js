@@ -38,7 +38,8 @@ const CreatePost = (props) => {
 
     return(
         <div className="create-post">
-            <div>
+            <div className='card-overlay centered'>
+            <div className="input-wrapper">
                 <ReactStars
                     onChange={handleStars}
                     size={24}
@@ -49,26 +50,34 @@ const CreatePost = (props) => {
                     name='rating'
                     half={false}
                 />
-                <input
+                    </div>
+                 <div className="input-wrapper">
+                    <textarea
+                    onChange={handleChange}
+                    value={post.description}
+                    name="description"
+                    placeholder="Tell Us About It..."
+                /> 
+                     </div>
+                 <div className="input-wrapper">
+                <input 
                     onChange={handleChange}
                     type='text'
                     value={post.title}
                     name='title'
                     placeholder="Title Here..."
                 />
-                <input
+                    </div>
+                 <div className="input-wrapper">
+                <input 
                     onChange={handleChange}
                     type='text'
                     value={post.image}
                     name='image'
                     placeholder="Add a Picture"
                 />
-                <textarea
-                    onChange={handleChange}
-                    value={post.description}
-                    name="description"
-                    placeholder="Tell Us About It..."
-                /> 
+                    </div>
+                <div className="input-wrapper">
                 <input
                     onChange={handleChange}
                     type='text'
@@ -76,13 +85,14 @@ const CreatePost = (props) => {
                     name='recipeUrl'
                     placeholder="Include a Link"
                 /> 
+                     </div>
             </div>
-            
             <button onClick={handleSubmit}>
                 {post ? `Send` : `Create a Post`}
             </button>
+            </div>
              
-        </div>
+
         
     )
 }

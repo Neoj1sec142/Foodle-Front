@@ -28,15 +28,17 @@ const HomePage = (props) => {
 
     return (
       <div className="feed-page">
-      
-       
-        {props.postDetailState.postDetail.map((post, i) => (
-          <div key={i}>
-            {/* {console.log(post, "POSTS")} */}
-            <Link to={`/profile/${post.User.username}`}>Posted By:{post.User.profileImg} {post.User.username}</Link>
-            <Post post={post} />
-          </div>
-        ))}
+        <div className="feed-wrapper">
+
+          {props.postDetailState.postDetail.map((post, i) => (
+            <div key={i}>
+              {/* {console.log(post, "POSTS")} */}
+              <Link to={`/profile/${post.User.username}`}>Posted By:{post.User.profileImg} {post.User.username}</Link>
+              <Post post={post} />
+            </div>
+          ))}
+
+        </div>
       </div>
     )
   }else{

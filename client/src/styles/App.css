@@ -278,7 +278,7 @@ form button:disabled {
 }
 
 .profile-info{
-  margin: 4px auto;
+  margin: 0 auto 4px auto;
   padding: 10px;
   border: 3px solid black;
   border-radius: 8px;

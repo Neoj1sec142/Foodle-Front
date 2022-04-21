@@ -6,9 +6,9 @@
       "node": "17.x"
     },
     "scripts": {
-        "start": "client/package.json/react-scripts start",
-        "build": "client/package.json/react-scripts build",
-        "test": "client/package.json/react-scripts test",
-        "eject": "client/package.json/react-scripts eject"
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
     }
 }

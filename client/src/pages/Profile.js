@@ -15,8 +15,8 @@ const Profile = (props) => {
 
     const [profileUser, setProfileUser] = useState({})
     const [posts, setPosts] = useState([])
-    const [followers, setFollowers] = useState({})
-    const [following, setFollowing] = useState({})
+    const [followers, setFollowers] = useState('')
+    const [following, setFollowing] = useState([])
     const [followBtn, setFollowBtn] = useState(false)
     
     //console.log(props, "PROPS")
@@ -34,15 +34,11 @@ const Profile = (props) => {
     useEffect(() => {
         const getPostsByProfileUser = async () => {
           if (profileUser.id) {  
-            const posts = await GetPostByUserId(profileUser.id) // FIX THIS
-            // console.log("GETPOSTS BY PROF USER", profileUser, posts)
+            const posts = await GetPostByUserId(profileUser.id) 
             setPosts(posts)
             }
-        }
-        console.log("ID", profileUser.id)
-        
+        }        
         getPostsByProfileUser()
-        
     }, [profileUser])
     
     // FOLLOWER EFFECT
@@ -59,21 +55,17 @@ const Profile = (props) => {
                 setFollowing(amFollowing[0].following)
             }
         }
-        
         getFollowers()
         getFollowing()
-        
     },[profileUser, followBtn])
+
     useEffect(() => {
         const checkIfFollowing = async () => {
-            // if (followers){
-            //     if (followers.filter((follower) => follower.id === props.user.id).length === 0 ){
-            //         setFollowBtn(true)
-            //     }else{
-            //         setFollowBtn(false)
-            //     }
-            // }
-            console.log("FOLLOWERS", followers)
+            if (Array.isArray(followers)) {
+                if (followers.filter((follower) => follower.id === props.user.id).length > 0 ) {
+                    setFollowBtn(true)
+                }
+            }
         }
         checkIfFollowing()
     },[followers])
@@ -88,27 +80,19 @@ const Profile = (props) => {
             window.location.reload(false)
         }
     }
-    const handleClick = (e) => {
+    const handleClick = async () => {
         if (followers.filter((follower) => follower.id === props.user.id).length === 0 ){
-            FollowUser(profileUser.id, props.user.id)
+            await FollowUser(profileUser.id, props.user.id)
             setFollowBtn(true)
         }else{
-            UnfollowUser(profileUser.id, props.user.id)
+            await UnfollowUser(profileUser.id, props.user.id)
             setFollowBtn(false)
         }
     }
 
-    
-
-    //console.log("THIS PROFILE USER", thisProfileUser)
-    
-    if (props.authenticated && profileUser.id && posts.length ) {
-      //console.log("FOLLOWERS:", followers)
-    //   const myFollowers = followers[0].followers
-    //    //console.log("FOLLOWING:", following)
-    //   const amFollowing = following[0].following
-
-     
+        
+  if (props.authenticated && profileUser.id && posts.length ) {
+ 
     return(
         <div className='user-profile'>
             <div className='profile-wrapper'>

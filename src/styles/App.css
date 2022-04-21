@@ -58,7 +58,13 @@ nav {
 }
 .Foodle-header {
   font-family: 'Ms Madi', cursive;
-  font-size: 25px;
+  font-size: 26px;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+}
+.Foodle-header:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 5px white;
 }
 
 nav a, nav h3 {

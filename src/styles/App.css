@@ -254,6 +254,28 @@ form button:disabled {
   color: white;
 }
 
+.username-stripe {
+  width: min(50%, 200px);
+  background: rgba(255,255,255,.5);
+  /* border: solid thin gray; */
+  border-radius: 8px;
+  margin: 8px;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  
+  font-size: smaller;
+  font-style: italic;
+  cursor:pointer;
+}
+.username-stripe img {
+  height: 36px; 
+  width: 36px; 
+  border-radius:50%;
+}
 /* *** PROFILE PAGE *** */
 
 .user-profile{
@@ -266,10 +288,11 @@ form button:disabled {
 }
 
 .profile-wrapper, .feed-wrapper {
-  max-width: 80%;
-  max-height: 50%;
+  width: 80%;
+  /* max-height: 50%; */
   margin: 0 auto;
   background:rgba(255,255,255, 0.5);
+  color:black;
 
 }
 
@@ -315,12 +338,12 @@ form button:disabled {
   background: #aaa;
 }
 
-.profile-wrapper .post-container {
+ .post-container {
   position: relative;
   margin: 20px auto;
 }
 
-.profile-wrapper .post-container button {
+.post-container button {
   position:absolute;
   top: 6px;
   right: 6px;
@@ -330,7 +353,7 @@ form button:disabled {
   font-style: italic;
 }
 
-.profile-wrapper .post-container button:hover {
+.post-container button:hover {
   background-color: #aaa;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   font-weight: bold;

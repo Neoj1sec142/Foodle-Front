@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import {LoadPostDetail} from '../store/actions/PostDetailActions'
 import { useEffect } from 'react'
 //import Comment from '../components/Comment'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import Post from '../components/Post'
 
 
@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const HomePage = (props) => {
   const { id } = useParams()
+  const navigate = useNavigate();
 
   useEffect(() => {
     props.fetchPostDetail(id)
@@ -28,22 +29,23 @@ const HomePage = (props) => {
 
     return (
       <div className="feed-page">
-        <div className="feed-wrapper">
+        <div className="feed-wrapper"><div>
 
           {props.postDetailState.postDetail.sort((a,b) => {return (a.updatedAt < b.updatedAt) ? 1 : -1} ).map((post, i) => (
-            <div key={i} style={{position:'relative', margin:'18px 0', color:'black'}}>
+            <div key={i} className='post-container'>
               {/* {console.log(post, "POSTS")} */}
-              <Link to={`/profile/${post.User.username}`}>
-                <div className='username-stripe'  style={{margin:'8px',display:'flex', flexDirection:'row',alignItems:'center', position:'absolute'}}>
-                  <img src={post.User.profileImg} alt='profile thumbnail' style={{height:'48px', width:'48px', borderRadius:'50%'}} /> 
+              
+
+                <div className='username-stripe' onClick={() => navigate(`/profile/${post.User.username}`)} >
+                  <img src={post.User.profileImg} alt='profile thumbnail' /> 
                   {post.User.username}
                 </div>
-              </Link>
+              
               <Post post={post} />
             </div>
           ))}
 
-        </div>
+        </div></div>
       </div>
     )
   }else{

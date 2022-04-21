@@ -98,8 +98,8 @@ const Profile = (props) => {
             <div className='profile-wrapper'>
                 <div className='profile-banner'>
                     <div className='profile-info'>
-                        <div className='profile-img-container'> 
-                            <img src={profileUser.profileImg} alt='thumbnail' />
+                        <div className='profile-img-container' style={{backgroundImage: `url(${profileUser.profileImg})`}}> 
+                            {/* <img src={profileUser.profileImg} alt='thumbnail' /> */}
                         </div>
                         <div className='profile-info-container'>
                             <h1> {profileUser.username} </h1>

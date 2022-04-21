@@ -4,5 +4,11 @@
     "version": "1.0.0",
     "engines": {
       "node": "17.x"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
     }
   }

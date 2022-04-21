@@ -30,10 +30,15 @@ const HomePage = (props) => {
       <div className="feed-page">
         <div className="feed-wrapper">
 
-          {props.postDetailState.postDetail.map((post, i) => (
-            <div key={i}>
+          {props.postDetailState.postDetail.sort((a,b) => {return (a.updatedAt < b.updatedAt) ? 1 : -1} ).map((post, i) => (
+            <div key={i} style={{position:'relative', margin:'18px 0', color:'black'}}>
               {/* {console.log(post, "POSTS")} */}
-              <Link to={`/profile/${post.User.username}`}>Posted By:{post.User.profileImg} {post.User.username}</Link>
+              <Link to={`/profile/${post.User.username}`}>
+                <div className='username-stripe'  style={{margin:'8px',display:'flex', flexDirection:'row',alignItems:'center', position:'absolute'}}>
+                  <img src={post.User.profileImg} alt='profile thumbnail' style={{height:'48px', width:'48px', borderRadius:'50%'}} /> 
+                  {post.User.username}
+                </div>
+              </Link>
               <Post post={post} />
             </div>
           ))}

@@ -17,6 +17,7 @@ const Profile = (props) => {
     const [posts, setPosts] = useState([])
     const [followers, setFollowers] = useState({})
     const [following, setFollowing] = useState({})
+    const [followBtn, setFollowBtn] = useState(false)
     
     //console.log(props, "PROPS")
     
@@ -39,26 +40,43 @@ const Profile = (props) => {
             }
         }
         console.log("ID", profileUser.id)
+        
+        getPostsByProfileUser()
+        
+    }, [profileUser])
+    
+    // FOLLOWER EFFECT
+    useEffect(() => {
         const getFollowers = async () => {
             if (profileUser.id) {
                 const followMe = await GetFollowersByUserId(profileUser.id)
-                setFollowers(followMe)
+                setFollowers(followMe[0].followers)
             }
         }
         const getFollowing = async () => {
             if (profileUser.id) {
                 const amFollowing = await GetFollowingByFollowerId(profileUser.id)
-                setFollowing(amFollowing)
+                setFollowing(amFollowing[0].following)
             }
         }
         
-
-        getPostsByProfileUser()
         getFollowers()
         getFollowing()
         
-    }, [profileUser])
-    
+    },[profileUser, followBtn])
+    useEffect(() => {
+        const checkIfFollowing = async () => {
+            // if (followers){
+            //     if (followers.filter((follower) => follower.id === props.user.id).length === 0 ){
+            //         setFollowBtn(true)
+            //     }else{
+            //         setFollowBtn(false)
+            //     }
+            // }
+            console.log("FOLLOWERS", followers)
+        }
+        checkIfFollowing()
+    },[followers])
     
     const goToUpdate = () => {
         navigate('update')
@@ -67,29 +85,30 @@ const Profile = (props) => {
     const handleDelete = (id) => {
         if (window.confirm("Are you sure you want to delete?")) { 
             DeletePost(id)
-            window.top.location.reload(true)
+            window.location.reload(false)
         }
     }
-    
+    const handleClick = (e) => {
+        if (followers.filter((follower) => follower.id === props.user.id).length === 0 ){
+            FollowUser(profileUser.id, props.user.id)
+            setFollowBtn(true)
+        }else{
+            UnfollowUser(profileUser.id, props.user.id)
+            setFollowBtn(false)
+        }
+    }
 
     
 
     //console.log("THIS PROFILE USER", thisProfileUser)
     
-    if (props.authenticated && profileUser.id && posts.length && followers.length && following.length) {
-      console.log("FOLLOWERS:", followers)
-      const myFollowers = followers[0].followers
-       console.log("FOLLOWING:", following)
-      const amFollowing = following[0].following
-      const followUser = (e) => {
-        if (myFollowers.filter((follower) => follower.id === props.user.id).length === 0 ){
-            FollowUser(profileUser.id, props.user.id)
-            window.top.location.reload(true)
-        }else{
-            UnfollowUser(profileUser.id, props.user.id)
-            window.top.location.reload(true)
-        }
-    }
+    if (props.authenticated && profileUser.id && posts.length ) {
+      //console.log("FOLLOWERS:", followers)
+    //   const myFollowers = followers[0].followers
+    //    //console.log("FOLLOWING:", following)
+    //   const amFollowing = following[0].following
+
+     
     return(
         <div className='user-profile'>
             <div className='profile-wrapper'>
@@ -104,12 +123,14 @@ const Profile = (props) => {
                             <h4>Email: {profileUser.email}</h4>
                             <p>{profileUser.profileDescription}</p> 
                             <div>
-                                <span> Followers: {myFollowers.length} </span> 
-                             | <span> Following: {amFollowing.length} </span>
+                                <span> Followers: {followers.length} </span> 
+                             | <span> Following: {following.length} </span>
                             </div>
                             {props.user.username === thisProfileUser 
                                 ? <button onClick={() => goToUpdate()}>Edit your profile</button> 
-                                : <button onClick={(e) => followUser(e)}>Follow</button>}
+                                : <button onClick={(e) => handleClick(e)}>
+                                    { followBtn ? 'Unfollow' : 'Follow' }
+                                  </button>}
                         </div>
                     </div>
                     {posts.map((post, i) => (

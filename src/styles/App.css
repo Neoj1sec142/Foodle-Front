@@ -266,22 +266,20 @@ form button:disabled {
   /* border: solid thin gray; */
   border-radius: 8px;
   margin: 8px;
-  
   display: flex;
   flex-direction: row;
   align-items: center;
   position: absolute;
   top: 0;
-  
   font-size: smaller;
   font-style: italic;
   cursor:pointer;
+} .username-stripe:hover {
+  text-decoration: underline;
+  border: solid thin gray;
 }
-.username-stripe img {
-  height: 36px; 
-  width: 36px; 
-  border-radius:50%;
-}
+
+
 /* *** PROFILE PAGE *** */
 
 .user-profile{
@@ -327,8 +325,11 @@ form button:disabled {
   margin: 4px 8px;
   flex: 25;
 }
-.profile-img-container img {
-  height: 100%;
+.username-stripe-img {
+  height: 40px;
+  max-width: 40px;
+  min-width: 40px;
+  border: solid thin gray;
 }
 
 .profile-info-container {

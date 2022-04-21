@@ -37,7 +37,11 @@ const HomePage = (props) => {
               
 
                 <div className='username-stripe' onClick={() => navigate(`/profile/${post.User.username}`)} >
-                  <img src={post.User.profileImg} alt='profile thumbnail' /> 
+                  {post.User.profileImg ?
+                    <div className='profile-img-container username-stripe-img' style={{backgroundImage:`url(${post.User.profileImg})`}}></div> 
+                  :
+                  <div className='profile-img-container username-stripe-img'></div>
+                }
                   {post.User.username}
                 </div>
               

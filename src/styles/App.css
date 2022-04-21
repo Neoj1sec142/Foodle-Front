@@ -291,12 +291,14 @@ form button:disabled {
   width: 80%;
   /* max-height: 50%; */
   margin: 0 auto;
+  padding: 8px 0 24px 0;
   background:rgba(255,255,255, 0.5);
   color:black;
 
 }
 
 .profile-info{
+  width: 95%;
   margin: 0 auto 4px auto;
   padding: 10px;
   border: 3px solid black;
@@ -305,7 +307,6 @@ form button:disabled {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 100%;
   background: linear-gradient(158deg, rgb(255 132 0 / 60%) 0%, rgba(255,255,255,.75) 100%);
 }
 .profile-img-container img {

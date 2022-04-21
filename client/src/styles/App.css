@@ -12,11 +12,13 @@
 html, .App, * {
   box-sizing: border-box;
 }
+
 html, .App, .main {
   height: 100vh;
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
@@ -45,8 +47,7 @@ header {
   background-color: var(--primary-bg);
 }
 
-.logo,
-.logo-wrapper {
+.logo,.logo-wrapper {
   height: 3.5em;
 }
 
@@ -59,11 +60,7 @@ nav {
   font-size: 25px;
 }
 
-
-
-
-nav a,
-nav h3 {
+nav a, nav h3 {
   text-decoration-color: var(--primary-bg);
   margin: auto 1em;
   color: var(--link-color-primary);
@@ -89,8 +86,7 @@ main {
   justify-content: center;
 }
 
-.home-container,
-.signin {
+.home-container, .signin {
   min-height: calc(100vh - 4em); 
   align-items: center;
   justify-content: center; 
@@ -127,8 +123,7 @@ main {
   background: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%);
 }
 
-form,
-.input-wrapper {
+form, .input-wrapper {
   margin: auto;
   width: 80%;
 }
@@ -206,7 +201,6 @@ form button:disabled {
   height: 80vh;
 }
 
-
 /* *** POST CARD COMPONENT *** */
 
 .post-card-container {
@@ -219,25 +213,24 @@ form button:disabled {
   padding: 1em;
   border-radius: 8px;
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
-  /* background-color: rgba(255,255,255,1); */
   background: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%);
-
 }
+
 .post-container {
   width: 80%;
   transition: all .1s ease-in-out;
-
 }
+
 .post-container:hover {
   box-shadow: 0 0 15px var(--primary-button-hover);
   transform: scale(1.01);
 }
+
 .post-card-container img {
   max-width: 90%;
   max-height: 400px;
   border-radius: 8px;
 }
-
 
 /* *** FEED PAGE *** */
 
@@ -256,7 +249,6 @@ form button:disabled {
   color: white;
 }
 
-
 /* *** PROFILE PAGE *** */
 
 .user-profile{
@@ -270,8 +262,6 @@ form button:disabled {
 
 .profile-wrapper, .feed-wrapper {
   width: 80%;
-  padding: 1em 2em;
-  /* border: 5px solid black; */
   margin: 0 auto;
   background:rgba(255,255,255, 0.5);
 }
@@ -288,22 +278,32 @@ form button:disabled {
   width: 100%;
   background: linear-gradient(158deg, rgb(255 132 0 / 60%) 0%, rgba(255,255,255,.75) 100%);
 }
+.profile-img-container img {
+  height: 100%;
+}
+
 .profile-img-container {
+  border-radius: 50%;
+  height: 200px;
   margin: 4px;
   flex: 25;
 }
+
 .profile-info-container {
   margin: 4px;
   flex: 75;
 }
+
 .profile-info h1, .profile-info h2, .profile-info h4, .profile-info p {
   margin: 0 auto 8px auto;
 }
+
 .profile-info button {
   margin: 8px auto;
   padding: 5px 10px;
   border: solid thin #aaa;
 }
+
 .profile-info button:hover {
   background: #aaa;
 }
@@ -312,6 +312,7 @@ form button:disabled {
   position: relative;
   margin: 20px auto;
 }
+
 .profile-wrapper .post-container button {
   position:absolute;
   top: 6px;
@@ -321,15 +322,15 @@ form button:disabled {
   font-size: .8em;
   font-style: italic;
 }
+
 .profile-wrapper .post-container button:hover {
-  /* transform: scale(1.05); */
   background-color: #aaa;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   font-weight: bold;
 }
 
-
 /* *** CREATE NEW POST *** */
+
 .create-post {
   background-image: url('../assets/food-background.jpeg');
   opacity: 60%;
@@ -340,5 +341,13 @@ form button:disabled {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.post-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 
 }

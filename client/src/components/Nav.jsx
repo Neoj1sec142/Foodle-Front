@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Nav = ({ authenticated, user, handleLogOut }) => {
   let authenticatedOptions
@@ -25,6 +25,7 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
     </nav>
   )
 
+  const navigate = useNavigate()
   return (
     <header>
       <Link to="/">
@@ -34,10 +35,10 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
             src="https://avatars.dicebear.com/api/jdenticon/app.svg"
             alt="welcome banner"
           />
-          {/* <img src="../assets/food-icon.png" alt="banner" /> */}
         </div>
       </Link>
-      <div className="Foodle-header">
+      <div className="Foodle-header" onClick={() => {
+          (authenticated && user ? navigate('/feed') : navigate('/signin'))}}>
           <h1>Foodle</h1> 
         </div>
       {authenticated && user ? authenticatedOptions : publicOptions}

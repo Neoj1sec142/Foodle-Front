@@ -91,16 +91,20 @@ const Profile = (props) => {
     }
 
         
-  if (props.authenticated && profileUser.id && posts.length ) {
+  if (props.authenticated && profileUser.id) {
  
     return(
         <div className='user-profile'>
             <div className='profile-wrapper'>
                 <div className='profile-banner'>
                     <div className='profile-info'>
-                        <div className='profile-img-container'> 
-                            <img src={profileUser.profileImg} alt='thumbnail' />
+                    {profileUser.profileImg ? 
+                        <div className='profile-img-container' style={{backgroundImage: `url(${profileUser.profileImg})`}}>
                         </div>
+                    :
+                        <div className='profile-img-container'></div>
+                    } 
+                            {/* <img src={profileUser.profileImg} alt='thumbnail' /> */}
                         <div className='profile-info-container'>
                             <h1> {profileUser.username} </h1>
                             <h4>Name: {profileUser.fullname}</h4>

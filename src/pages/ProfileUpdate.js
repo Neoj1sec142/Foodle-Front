@@ -58,7 +58,8 @@ const ProfileUpdate = (props) => {
               onChange={handleChange}
               type='text' 
               value={userDetails.profileImg} 
-              name='profileImg' />            
+              name='profileImg' 
+              maxlength='255'/>            
           </div>
           <div className='profile-update-info'>
 
@@ -67,21 +68,23 @@ const ProfileUpdate = (props) => {
               onChange={handleChange}
               type='text' 
               value={userDetails.fullname} 
-              name='fullname' />
+              name='fullname' 
+              maxlength='255'/>
 
             <label for='email'>Email: </label>
             <input 
               onChange={handleChange}
               type='text' 
               value={userDetails.email} 
-              name='email' />
+              name='email' 
+              maxlength='255'/>
 
             <label for='profileDescription'>About You: </label>
             <textarea 
               onChange={handleChange}
               value={userDetails.profileDescription} 
-              name='profileDescription' />
-
+              name='profileDescription' 
+            />
           </div>
 
           <button onClick={handleSubmit}>Save</button>

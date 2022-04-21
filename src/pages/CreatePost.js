@@ -66,6 +66,7 @@ const CreatePost = (props) => {
                     value={post.title}
                     name='title'
                     placeholder="Title Here..."
+                    maxlength='255'
                 />
                     </div>
                  <div className="input-wrapper">
@@ -75,6 +76,7 @@ const CreatePost = (props) => {
                     value={post.image}
                     name='image'
                     placeholder="Add a Picture"
+                    maxlength='255'
                 />
                     </div>
                 <div className="input-wrapper">
@@ -84,6 +86,7 @@ const CreatePost = (props) => {
                     value={post.recipeUrl}
                     name='recipeUrl'
                     placeholder="Include a Link"
+                    maxlength='255'
                 /> 
                      </div>
             </div>

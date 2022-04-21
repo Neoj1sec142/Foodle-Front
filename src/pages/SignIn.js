@@ -36,6 +36,7 @@ const SignIn = (props) => {
               type="username"
               placeholder="jSmith123"
               value={formValues.username}
+              maxlength='255'
               required
             />
           </div>
@@ -47,6 +48,7 @@ const SignIn = (props) => {
               name="password"
               placeholder="*****"
               value={formValues.password}
+              maxlength='255'
               required
             />
           </div>

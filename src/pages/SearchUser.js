@@ -17,7 +17,7 @@ const SearchUser = (props) => {
         const getAllUsers = async () => {
             const all = await GetUsers()
             setAllUsers(all)
-            console.log("ALL USERS", allUsers)
+            
         }
         getAllUsers()        
     }, [])
@@ -52,8 +52,8 @@ const SearchUser = (props) => {
         getFollowing()
     },[profileUser])
 
-    
-console.log()
+    console.log("ALL USERS", allUsers)
+// console.log()
     return(
         <div className='search-user-page'>
             {allUsers.map((user) => (

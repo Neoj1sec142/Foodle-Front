@@ -315,17 +315,18 @@ form button:disabled {
   align-items: center;
   background: linear-gradient(158deg, rgb(255 132 0 / 60%) 0%, rgba(255,255,255,.75) 100%);
 }
-.profile-img-container img {
-  height: 100%;
-}
 
 .profile-img-container {
+  background-image: url('../assets/profile-blank.png');
   background-size: cover;
   border: solid 3px black;
   border-radius: 50%;
   height: 200px;
   margin: 4px 8px;
   flex: 25;
+}
+.profile-img-container img {
+  height: 100%;
 }
 
 .profile-info-container {

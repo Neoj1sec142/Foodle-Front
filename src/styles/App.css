@@ -322,6 +322,8 @@ form button:disabled {
   border: solid 3px black;
   border-radius: 50%;
   height: 200px;
+  max-width: 200px;
+  min-width:200px;
   margin: 4px 8px;
   flex: 25;
 }

@@ -268,10 +268,9 @@ form button:disabled {
   min-height: 100vh;
 }
 
-.profile-wrapper{
+.profile-wrapper, .feed-wrapper {
   width: 80%;
-  padding-right: 2em;
-  padding-left: 2em;
+  padding: 1em 2em;
   /* border: 5px solid black; */
   margin: 0 auto;
   background:rgba(255,255,255, 0.5);

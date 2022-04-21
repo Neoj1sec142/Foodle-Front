@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {useParams, useNavigate} from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { GetUsers, GetUserDetailByUsername, GetFollowersByUserId, GetFollowingByFollowerId, FollowUser, UnfollowUser } from '../services/UserServices'
 
 const SearchUser = (props) => {
@@ -12,7 +12,16 @@ const SearchUser = (props) => {
     const [followers, setFollowers] = useState([])
     const [profileUser, setProfileUser] = useState({})
 
-    // User Effect
+    // allUsers and profileUser Effect//
+    useEffect(() => {
+        const getAllUsers = async () => {
+            const all = await GetUsers()
+            setAllUsers(all)
+            console.log("ALL USERS", allUsers)
+        }
+        getAllUsers()        
+    }, [])
+
     useEffect(() => {
         if(thisProfileUser){
             const getUserData = async () => {
@@ -43,19 +52,13 @@ const SearchUser = (props) => {
         getFollowing()
     },[profileUser])
 
-    useEffect(() => {
-        const getAllUsers = async (e) => {
-            
-            const all = await GetUsers()
-            setAllUsers(all.data)
-            console.log("ALL USERS", allUsers)
-        }
-        getAllUsers()        
-    }, [])
-
+    
+console.log()
     return(
         <div className='search-user-page'>
-            {}
+            {allUsers.map((user) => (
+                <h2><Link to={`/profile/${user.username}`}>{user.username}</Link></h2>
+            ))}
 
         </div>
     )

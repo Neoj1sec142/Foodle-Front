@@ -35,9 +35,6 @@ const ProfileUpdate = (props) => {
   const handleSubmit = async (e) => {
       e.preventDefault()
       await UpdateUserProfile(props.user.id, userDetails) 
-      // const res =
-      // const data = await res.json()
-      // console.log(data)
       navigate(`/profile/${props.user.username}`)
   }
 
@@ -45,7 +42,7 @@ const ProfileUpdate = (props) => {
 
     if (userDetails.id) {
       return(
-        <div className='profile-update-container'>
+        <form className='profile-update-container' onSubmit={handleSubmit}>
           <h3>Update Profile</h3>
           
           <div className='profile-update-pic'>
@@ -56,7 +53,7 @@ const ProfileUpdate = (props) => {
             <label for='profileImg'>Profile picture: </label>
             <input 
               onChange={handleChange}
-              type='text' 
+              type='url' 
               value={userDetails.profileImg} 
               name='profileImg' 
               maxlength='255'/>            
@@ -74,7 +71,7 @@ const ProfileUpdate = (props) => {
             <label for='email'>Email: </label>
             <input 
               onChange={handleChange}
-              type='text' 
+              type='email' 
               value={userDetails.email} 
               name='email' 
               maxlength='255'/>
@@ -87,8 +84,8 @@ const ProfileUpdate = (props) => {
             />
           </div>
 
-          <button onClick={handleSubmit}>Save</button>
-        </div> // className='profile-update-container'
+          <button type='submit'>Save</button>
+        </form> // className='profile-update-container'
       )
     } else {
         return (

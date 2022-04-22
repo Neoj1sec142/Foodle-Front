@@ -57,7 +57,7 @@ const CreatePost = (props) => {
                  <p>Image (Url)</p>
                 <input 
                     onChange={handleChange}
-                    type='text'
+                    type='url'
                     value={post.image}
                     name='image'
                     placeholder="Add a Picture"

@@ -13,7 +13,7 @@ export const GetUsers = async () => {
 export const GetUsersWithFollowers = async () => {
   try {
       const response = await Client.get(`users/withfollowers`)
-      console.log(response, "RESPONSE")
+      //console.log(response, "RESPONSE")
       return response.data
   } catch (error) {
       throw error
@@ -32,7 +32,7 @@ export const GetUserDetail = async (id) => {
 export const GetUserDetailByUsername = async (username) => {
   try {
       const response = await Client.get(`users/byusername/${username}`)
-      // console.log(response.data, "RESPONSE for User")
+      console.log(response.data, "RESPONSE for User")
       return response.data
   } catch (error) {
       throw error

@@ -406,3 +406,14 @@ form button:disabled {
   padding: 0.5em;
   border-radius: 25px;
 }
+
+.search-user-page {
+position: fixed;
+left: 400px;
+top: 100px;
+padding: 4em;
+justify-content: space-around 250px;
+margin: 18px;
+background: square;
+
+}

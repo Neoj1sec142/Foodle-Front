@@ -54,13 +54,27 @@ const SearchUser = (props) => {
 
     console.log("ALL USERS", allUsers)
 // console.log()
+    if (allUsers.length) {
+
     return(
-        <div className='search-user-page'>
-            {allUsers.map((user) => (
+        <div className='feed-page'>
+            {allUsers.map((user, i) => (
+                <div className='user-search' key={i}>
+                    {user.profileImg ?
+                    <div className='profile-img-container' style={{backgroundImage:`url(${user.profileImg})`}}></div> 
+                  :
+                  <div className='profile-img-container'></div>
+                }
                 <h2><Link to={`/profile/${user.username}`}>{user.username}</Link></h2>
+                </div>
             ))}
 
         </div>
     )
+ } else {
+     <div> 
+         loading...
+     </div>
+ }
 }
 export default SearchUser

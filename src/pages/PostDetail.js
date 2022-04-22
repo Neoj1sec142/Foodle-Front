@@ -71,17 +71,19 @@ const PostDetail = (props) => {
     
     //console.log(props.user, "user")
     const post = props.postDetailState.postDetail
-    console.log(props.postDetailState.postDetail.Comments, "POST DETAIL STATE")
+    console.log(post, "POST")
     if (post.id){
     return(
         <div className='post-detail' >
             
-            <img src={post.image} style={{width: '300px'}}/>
-            <h3>Title: {post.title}</h3>
-            <h3>Url: <a href="https://duckduckgo.com/"> {post.recipeUrl} </a></h3>
-            <h3>Rating: {post.rating}</h3>
+            <h3>
+                {post.title ? <span className='post-title'>{post.title}</span> : <span className='post-no-title'>(No title)</span>}
+                </h3>
+            <h5>Posted by: {post.User.username}</h5> 
+            <img src={post.image} alt='mouth-watering dish'/>
+            <h3>Url: <a href={post.recipeUrl} target="_blank"> {post.recipeUrl} </a></h3>
+            <h3>My Rating: {post.rating}</h3>
             <p>Description: {post.description}</p>
-            <h5>Posted by User: {post.userId}</h5> 
             <div>
                 {props.postDetailState.postDetail.Comments.map((comm) => (
                     <Comment commentor={comm.User.username}rating={comm.rating} comment={comm.comment} key={comm.id} /> 

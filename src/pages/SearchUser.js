@@ -25,7 +25,7 @@ const SearchUser = (props) => {
     
     const handleClick = async (e) => {
         e.preventDefault()        
-        const searches = allUsers.filter((item) => item.username.includes(search))
+        const searches = allUsers.filter((item) => item.username.toLowerCase().includes(search.toLowerCase()))
         setResults(searches)
         setSearch('')
         console.log("RESULTS", searches)
@@ -35,6 +35,7 @@ const SearchUser = (props) => {
 
     return(
         <div className='feed-page'>
+            <div className='input-wrapper'>
              <input 
                 className='search-user-bar'
                 onChange={(e) => handleChange(e)}
@@ -44,6 +45,8 @@ const SearchUser = (props) => {
                 placeholder='Search Users'
             />
             <button onClick={(e) => handleClick(e)}>GO</button>
+            </div>
+
             {results.map((res) => (
                 <div className='profile-info'>
                     {res.profileImg ?

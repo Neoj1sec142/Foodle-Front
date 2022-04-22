@@ -475,9 +475,19 @@ form button:disabled {
   border-radius: 25px;
 }
 
+.comments-all-container {
+  width: 80%;
+}
 .comment-wrapper {
   border: solid thin gray;
-
+  border-radius: 8px;
+  width: 90%;
+  margin: 8px auto;
+  padding: 8px;
+  background: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%);
+}
+.comment-wrapper p {
+  margin: 0;
 }
 
 .search-user-page {

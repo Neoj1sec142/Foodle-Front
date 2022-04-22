@@ -3,10 +3,10 @@ import ReactStars from 'react-stars'
 const Comment = ({rating, comment, commentor}) => {
 
     return (
-        <div>
-            <ReactStars value={rating} edit={false} size={24} color2={'#ffd700'} />
+        <div className='comment-wrapper'>
+            <h5>Comment By: {commentor}</h5>
             <p>{comment}</p>
-            <h5>By: {commentor}</h5>
+            <ReactStars value={rating} edit={false} size={24} color2={'#ffd700'} />
         </div>
     )
 }

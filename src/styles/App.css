@@ -9,6 +9,7 @@
   --link-color-secondary: #e1efe6;
   --primary-button-hover: #3c7d79;
   --custom-gradient: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%);
+  --custom-background-image: url('../assets/feed-background.jpeg');
 }
 
 html, .App, * {
@@ -36,7 +37,12 @@ body {
   background-color: var(--secondary-bg);
 }
 .main {
-  min-height: calc(100vh - 7em);
+  min-height: calc(100vh - 8em);
+  background: var(--custom-background-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 90%;
 }
 
 button {
@@ -310,7 +316,6 @@ form button:disabled {
 /* *** FEED PAGE *** */
 
 .feed-page {
-  background-image: url('../assets/feed-background.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -319,14 +324,14 @@ form button:disabled {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 .feed-page .input-wrapper {
   background: var(--custom-gradient);
   border-radius: 8px;
-  margin: 8px auto;
+  margin: 8px auto 24px auto;
   padding: 16px;
   text-align: center;
 }
@@ -335,7 +340,6 @@ form button:disabled {
   width: fit-content;
   min-width: min(50%, 200px);
   background: rgba(255,255,255,.5);
-  /* border: solid thin gray; */
   border-radius: 8px;
   margin: 8px;
   padding: 0 5px;
@@ -356,7 +360,7 @@ form button:disabled {
 /* *** PROFILE PAGE *** */
 
 .user-profile{
-  background-image: url('../assets/feed-background.jpeg');
+  background-image: var(--custom-background-image);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -456,8 +460,6 @@ form button:disabled {
 /* *** CREATE NEW POST *** */
 
 .create-post {
-  background-image: url('../assets/food-background.jpeg');
-  opacity: 60%;
   min-height: calc(100vh - 4em);
   display: flex;
   flex-direction: column;
@@ -483,9 +485,8 @@ form button:disabled {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border-radius: 8px; */
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
-  background: var(--custom-gradient), url('../assets/feed-background.jpeg');
+  background: var(--custom-gradient), var(--custom-background-image);
   background-size: cover;
   padding: 16px; 
 }
@@ -518,15 +519,4 @@ form button:disabled {
 }
 .comment-wrapper p {
   margin: 0;
-}
-
-.search-user-page {
-position: fixed;
-left: 400px;
-top: 100px;
-padding: 4em;
-justify-content: space-around 250px;
-margin: 18px;
-background: square;
-
 }

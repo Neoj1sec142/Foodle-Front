@@ -320,7 +320,6 @@ form button:disabled {
   background-repeat: no-repeat;
   background-attachment: fixed;
   opacity: 90%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -365,12 +364,10 @@ form button:disabled {
   background-repeat: no-repeat;
   background-attachment: fixed;
   opacity: 90%;
-  min-height: 100vh;
 }
 
 .profile-wrapper, .feed-wrapper {
   width: 80%;
-  /* max-height: 50%; */
   margin: 0 auto;
   padding: 8px 0 24px 0;
   background:rgba(255,255,255, 0.5);
@@ -416,6 +413,10 @@ form button:disabled {
 
 .profile-info h1, .profile-info h2, .profile-info h4, .profile-info p {
   margin: 0 auto 8px auto;
+}
+.profile-info h2 {
+  font-size:26px;
+  margin: 8px;
 }
 
 .profile-info button {

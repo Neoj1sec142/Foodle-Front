@@ -48,6 +48,7 @@ const SearchUser = (props) => {
             </div>
 
             {results.map((res) => (
+              <div>
                 <div className='profile-info'>
                     {res.profileImg ?
                         <div className='profile-img-container' style={{backgroundImage: `url(${res.profileImg})`}}></div>
@@ -62,6 +63,7 @@ const SearchUser = (props) => {
                         </div>
                     </div>
                 </div>
+              </div>
             ))}
             {!results.length ?  
                 <div>

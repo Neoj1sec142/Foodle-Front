@@ -8,6 +8,7 @@
   --secondary-bg: #e1efe6;
   --link-color-secondary: #e1efe6;
   --primary-button-hover: #3c7d79;
+  --custom-gradient: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%);
 }
 
 html, .App, * {
@@ -44,6 +45,9 @@ button {
   transition: all 0.2s ease;
   padding: 0.8em 1.2em;
   font-size: 1.1rem;
+} 
+button:hover {
+  background: var(--primary-button-hover);
 }
 
 button,
@@ -181,7 +185,7 @@ main {
   border-radius: 8px;
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3); 
   background-color: rgba(255,255,255,1);
-  background: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%);
+  background: var(--custom-gradient);
 }
 
 form, .input-wrapper {
@@ -288,7 +292,7 @@ form button:disabled {
   padding: 1em;
   border-radius: 8px;
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%);
+  background: var(--custom-gradient);
 }
 
 
@@ -319,13 +323,22 @@ form button:disabled {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.feed-page .input-wrapper {
+  background: var(--custom-gradient);
+  border-radius: 8px;
+  margin: 8px auto;
+  padding: 16px;
+  text-align: center;
+}
 
 .username-stripe {
-  width: min(50%, 200px);
+  width: fit-content;
+  min-width: min(50%, 200px);
   background: rgba(255,255,255,.5);
   /* border: solid thin gray; */
   border-radius: 8px;
   margin: 8px;
+  padding: 0 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -472,7 +485,7 @@ form button:disabled {
   align-items: center;
   /* border-radius: 8px; */
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%), url('../assets/feed-background.jpeg');
+  background: var(--custom-gradient), url('../assets/feed-background.jpeg');
   background-size: cover;
   padding: 16px; 
 }
@@ -501,7 +514,7 @@ form button:disabled {
   width: 90%;
   margin: 8px auto;
   padding: 8px;
-  background: linear-gradient(323deg, rgb(104 193 197 / 75%) 0%, rgba(255,255,255,.75) 100%);
+  background: var(--custom-gradient);
 }
 .comment-wrapper p {
   margin: 0;

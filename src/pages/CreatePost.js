@@ -38,8 +38,9 @@ const CreatePost = (props) => {
 
     return(
         <div className="create-post">
-            <div className='card-overlay centered'>
+            <form className='card-overlay centered' onSubmit={handleSubmit}>
                 <h3>New Post</h3>
+
                  <div className="input-wrapper">
                      <p>Title</p>
                 <input 
@@ -49,6 +50,7 @@ const CreatePost = (props) => {
                     name='title'
                     placeholder="Title Here..."
                     maxlength='255'
+                    required
                 />
                     </div>
                  <div className="input-wrapper">
@@ -60,13 +62,14 @@ const CreatePost = (props) => {
                     name='image'
                     placeholder="Add a Picture"
                     maxlength='255'
+                    required
                 />
                     </div>
                 <div className="input-wrapper">
                 <p>Recipe Link</p>
                 <input
                     onChange={handleChange}
-                    type='text'
+                    type='url'
                     value={post.recipeUrl}
                     name='recipeUrl'
                     placeholder="Include a Link"
@@ -96,9 +99,9 @@ const CreatePost = (props) => {
                     </div>
                      </div>
                 <div className='input-wrapper center'>
-                    <button onClick={handleSubmit}>Save</button>
+                    <button type='submit'>Save</button>
                 </div>
-            </div>
+            </form>
             </div>
              
 

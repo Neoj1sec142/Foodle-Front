@@ -77,7 +77,15 @@ const PostDetail = (props) => {
         <div className='post-detail'>
             
             <h3>
-                {post.title ? <span className='post-title'>{post.title}</span> : <span className='post-no-title'>(No title)</span>}
+                {post.title ? 
+                    <span className='post-title'>
+                        {post.title}
+                    </span> 
+                : 
+                    <span className='post-no-title'>
+                        (No title)
+                        </span>
+                }
                 </h3>
             <h5>Posted by: {post.User.username}</h5> 
             <img src={post.image} alt='mouth-watering dish'/>

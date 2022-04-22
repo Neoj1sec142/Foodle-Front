@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 import Register from './pages/Register'
@@ -83,6 +84,10 @@ function App() {
             element={<SearchUser user={user} authenticated={authenticated} />}
           />
         </Routes>
+      </div>
+
+      <div className='App-footer'>
+        <Footer />
       </div>
     </div>
   );

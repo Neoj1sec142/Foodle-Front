@@ -354,7 +354,7 @@ form button:disabled {
 }
 
  .post-container {
-  position: relative;
+  position: relative; 
   margin: 20px auto;
 }
 

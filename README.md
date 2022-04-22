@@ -1,5 +1,4 @@
 # Foodle
-
 Our vision behind this app is a mock up version of flickr for food. 
 Adding to the recipe book idea, each user will be able to post pictures 
 of thier own recipes along with the rating they would give it.
@@ -26,20 +25,29 @@ recipes a sense of credibility to the recipes people post.
 * [x] Delete  
 [x] Stretch: Onclick for post should usenav to recipe card  
 [] Stretch: Overall Rating on Comment System give average rating of users recipe post credibility at top of profile   
-[] Stretch: Add Following abilities to users to follow pages   
-[] Stretch: Url to link to url   
-[] Stretch: 
-
+[x] Stretch: Add Following abilities to users to follow pages   
+[x] Stretch: Url to link to url   
 
 ***
 ## Component Heirarchy Diagram:
-![CHD](./client/public/CHD2.png)   
+![CHD](./public/CHD2.png)   
 ***
 ## Enitity Relationship Diagram:
-![ERD](./client/public/ERD2.png)
+![ERD](./public/ERD2.png)
 ***
 ## WireFrame Basic Layout Idea:
-![WireFrame](./client/public/WireFrame.png)
+![WireFrame](./public/WireFrame.png)
+***
+## Page Layout: 
+![home](./src/assets/image.png)
+***
+![signin](./src/assets/signin.png)
+***
+![profile](./src/assets/profile.png)
+***
+![feed](./src/assets/allfeed.png)
+***
+![update](./src/assets/update.png)
 ***
 ### Installs List Front End:
 * axios 
@@ -74,10 +82,9 @@ recipes a sense of credibility to the recipes people post.
 
 ### Created By:
 [Tim Ellis](https://github.com/timmellis)   
-[LinkedIn]()   
+    * [LinkedIn](https://linkedin.com/in/tim-m-ellis/)   
 [Joshua Grainger](https://github.com/joshgrainger22)   
-[LinkedIn]()   
+    * [LinkedIn](https://linkedin.com/in/joshua-grainger-5aa230229/)   
 [Mark Harmon](https://github.com/Neoj1sec142)    
-[LinkedIn]()   
+    * [LinkedIn](https://linkedin.com/in/markharmon142/)   
 ***
-#### Credits:

@@ -53,6 +53,15 @@ const SearchUser = (props) => {
 
     return(
         <div className='feed-page'>
+             <input 
+                className='search-user-bar'
+                onChange={(e) => handleChange(e)}
+                value={search}
+                maxLength='255'
+                name='searchbar'
+                placeholder='Search Users'
+            />
+            <button onClick={(e) => handleClick(e)}>GO</button>
             {allUsers.map((user, i) => (
                 <div className='profile-info' key={i}>
                     {user.profileImg ?

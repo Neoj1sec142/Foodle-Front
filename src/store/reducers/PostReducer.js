@@ -3,12 +3,7 @@ const { GET_POSTS, NEW_POST, UPDATE_POST, GET_POST_DETAIL } = require('../types'
 const initialState = {
     posts: [],
     detail: {},
-    post: {
-        // image: '',
-        // description: '',
-        // recipeUrl: '',
-        // rating: 0
-    }
+    post: {}
 }
 
 const PostReducer = (state =initialState, action) => {

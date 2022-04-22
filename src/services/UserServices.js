@@ -3,7 +3,6 @@ import Client from './api'
 export const GetUsers = async () => {
   try {
       const response = await Client.get(`users`)
-      // console.log(response, "RESPONSE")
       return response.data
   } catch (error) {
       throw error
@@ -13,7 +12,6 @@ export const GetUsers = async () => {
 export const GetUsersWithFollowers = async () => {
   try {
       const response = await Client.get(`users/withfollowers`)
-      //console.log(response, "RESPONSE")
       return response.data
   } catch (error) {
       throw error
@@ -23,16 +21,15 @@ export const GetUsersWithFollowers = async () => {
 export const GetUserDetail = async (id) => {
   try {
       const response = await Client.get(`users/${id}`)
-      // console.log(response.data, "RESPONSE for User")
       return response.data
   } catch (error) {
       throw error
   }
 }
+
 export const GetUserDetailByUsername = async (username) => {
   try {
       const response = await Client.get(`users/byusername/${username}`)
-      console.log(response.data, "RESPONSE for User")
       return response.data
   } catch (error) {
       throw error

@@ -39,18 +39,9 @@ const PostDetail = (props) => {
         }
         GetPost()
     }, [post_id])
-
-    //for postDetailState
-    // useEffect(() => {
-    //     const GetPostDetail = async () => {
-    //         await props.fetchPostDetail(post_id)
-    //     }
-    //     GetPostDetail()
-    // }, [post_id])
     
     const handleSubmit = (e) => {
         const user_id = props.user.id
-        //console.log(user_id)
         e.preventDefault()
         if (props.postDetailState.moreComment){
             props.uploadComment(user_id, post_id, props.postDetailState.newComment)
@@ -62,14 +53,12 @@ const PostDetail = (props) => {
     const handleChange = async (e) => {
         const newComment = props.postDetailState.newComment
         await props.updateComment({...newComment, [e.target.name]: e.target.value })
-        //console.log(newComment)
     }
     const handleStars = async (e) => {
         const newComment = props.postDetailState.newComment
         await props.updateComment({...newComment, rating: e})
     }
     
-    //console.log(props.user, "user")
     const post = props.postDetailState.postDetail
     console.log(post, "POST")
     if (post.id){

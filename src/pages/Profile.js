@@ -1,7 +1,6 @@
 
 import { useParams, useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-// import { LoadUserDetails } from '../store/actions/UserActions'
 import { GetUserDetailByUsername, GetFollowersByUserId, GetFollowingByFollowerId, FollowUser, UnfollowUser } from '../services/UserServices'
 import { GetPostByUserId } from '../services/PostServices'
 import Post from '../components/Post'
@@ -18,8 +17,6 @@ const Profile = (props) => {
     const [followers, setFollowers] = useState('')
     const [following, setFollowing] = useState([])
     const [followBtn, setFollowBtn] = useState(false)
-    
-    //console.log(props, "PROPS")
     
     useEffect(() => {
         if(thisProfileUser){
@@ -104,7 +101,6 @@ const Profile = (props) => {
                     :
                         <div className='profile-img-container'></div>
                     } 
-                            {/* <img src={profileUser.profileImg} alt='thumbnail' /> */}
                         <div className='profile-info-container'>
                             <h1> {profileUser.username} </h1>
                             <h4>Name: {profileUser.fullname}</h4>

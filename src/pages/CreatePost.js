@@ -1,23 +1,20 @@
 import React, {useState} from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ReactStars from 'react-stars'
 import {AddPost} from '../services/PostServices'
 
 const CreatePost = (props) => {
-    // console.log(props, "PROPS")
-    if (props.user){
-        const id = props.user.id
-    }
+
     const [post, setPost] = useState({
         title: '',
         image: '',
         description: '',
         recipeUrl: '',
         rating: 0
-        // userId: id
     })
+
     const navigate = useNavigate()
-    //const {id} = useParams()
+    
     const handleChange = (e) => {
         setPost({...post, [e.target.name]: e.target.value}) 
         console.log(post)
@@ -26,9 +23,6 @@ const CreatePost = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         await AddPost(props.user.id, post) 
-        // const res =
-        // const data = await res.json()
-        // console.log(data)
         navigate(`/feed`)
         setPost('')
     }

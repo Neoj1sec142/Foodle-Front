@@ -7,7 +7,6 @@ const Nav = ({ authenticated, user, handleLogOut }) => {
       <nav>
         <h3>Logged in as {user.username}!</h3>
         <Link to="/feed">Feed</Link>
-        {/* <Link to={`/detail/`}>Details</Link> */}
         <Link to={`/profile/${user.username}`}>Profile</Link>
         <Link to="/create">Create</Link>
         <Link to="/search">Search</Link>

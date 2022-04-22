@@ -10,7 +10,6 @@ const initialState = {
     moreComment: false
 }
 
-
 const PostDetailReducer = (state =initialState, action) => {
     switch (action.type) {
         case GET_POST_DETAIL:

@@ -1,10 +1,8 @@
 import { connect } from 'react-redux'
 import {LoadPostDetail} from '../store/actions/PostDetailActions'
 import { useEffect } from 'react'
-//import Comment from '../components/Comment'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Post from '../components/Post'
-
 
 const mapStateToProps = ({ postDetailState }) => {
   return { postDetailState }
@@ -17,13 +15,13 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const HomePage = (props) => {
+
   const { id } = useParams()
   const navigate = useNavigate();
 
   useEffect(() => {
     props.fetchPostDetail(id)
   }, [id])
-
   
   if (props.postDetailState.postDetail.length){
 
@@ -33,9 +31,6 @@ const HomePage = (props) => {
 
           {props.postDetailState.postDetail.sort((a,b) => {return (a.updatedAt < b.updatedAt) ? 1 : -1} ).map((post, i) => (
             <div key={i} className='post-container'>
-              {/* {console.log(post, "POSTS")} */}
-              
-
                 <div className='username-stripe' onClick={() => navigate(`/profile/${post.User.username}`)} >
                   {post.User.profileImg ?
                     <div className='profile-img-container username-stripe-img' style={{backgroundImage:`url(${post.User.profileImg})`}}></div> 
@@ -44,11 +39,10 @@ const HomePage = (props) => {
                 }
                   {post.User.username}
                 </div>
-              
               <Post post={post} />
             </div>
           ))}
-
+          
         </div></div>
       </div>
     )

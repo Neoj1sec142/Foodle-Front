@@ -1,8 +1,5 @@
-import { Link, useNavigate } from 'react-router-dom'
 
-const Footer = () => {
-
-  const navigate = useNavigate()
+const Footer = () => {  
 
   return (
     <footer>

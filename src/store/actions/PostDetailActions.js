@@ -1,7 +1,6 @@
 import * as services from '../../services/PostServices'
 import * as types from '../types'
 
-//Load detail of a post from server to state
 export const LoadPostDetail = (id) => {
     return async (dispatch) => {
         try {
@@ -20,7 +19,6 @@ export const LoadOnePostDetail = (id) => {
     return async (dispatch) => {
         try {
             const detail = await services.GetPostDetail(id)
-            //console.log(detail, "POST DETAIL")
             dispatch({
                 type: types.GET_POST_DETAIL,
                 payload: detail
@@ -31,7 +29,6 @@ export const LoadOnePostDetail = (id) => {
     }
 }
 
-//Add a comment to database
 export const UploadComment = (user_id, post_id, newComment) => {
     return async (dispatch) => {
         try {
@@ -46,13 +43,11 @@ export const UploadComment = (user_id, post_id, newComment) => {
     }
 }
 
-// Update the comment state
 export const UpdateComment = (comment) => ({
         type: types.UPDATE_NEW_COMMENT,
         payload: comment
 })
 
-// Update the moreComment state
 export const ToggleMoreComment = (value) => ({
     type: types.TOGGLE_MORE_COMMENT,
     payload: value

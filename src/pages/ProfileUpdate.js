@@ -1,18 +1,14 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-// import { LoadUserDetails } from '../store/actions/UserActions'
 import { GetUserDetail, UpdateUserProfile } from '../services/UserServices'
-import Post from '../components/Post'
+
 
 
 const ProfileUpdate = (props) => {
      
   const [userDetails, setUserDetails] = useState({})
     
-  // console.log(props, "PROPS") 
-    
   useEffect(() => {
-      // e.prevent.default()
       if(props.user){
           const getUserData = async () => {
               const data = await GetUserDetail(props.user.id)                
@@ -21,10 +17,6 @@ const ProfileUpdate = (props) => {
           getUserData()
       }
   }, [props.user])
-
-  useEffect(() => {
-    console.log("ONCHANGE DETAILS",userDetails)
-  })
 
   const navigate = useNavigate()
 
@@ -37,8 +29,6 @@ const ProfileUpdate = (props) => {
       await UpdateUserProfile(props.user.id, userDetails) 
       navigate(`/profile/${props.user.username}`)
   }
-
-
 
     if (userDetails.id) {
       return(
@@ -92,7 +82,7 @@ const ProfileUpdate = (props) => {
           </div>
 
           <button type='submit'>Save</button>
-        </form> // className='profile-update-container'
+        </form> 
       )
     } else {
         return (

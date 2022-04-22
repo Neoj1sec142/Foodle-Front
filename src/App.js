@@ -20,14 +20,11 @@ function App() {
 
   const checkToken = async () => {
     const user = await CheckSession()
-    //console.log('checkToken', user)
-    
     setUser(user)
     toggleAuthenticated(true)
   }
 
   const handleLogOut = () => {
-    //Reset all auth related state and clear localStorage
     setUser(null);
     toggleAuthenticated(false);
     localStorage.clear();
@@ -35,10 +32,7 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem('token')
-    
-    // Check if token exists before requesting to validate the token
     if (token) {
-      //console.log(token, "TOKEN")
       checkToken()
     }
   }, [])

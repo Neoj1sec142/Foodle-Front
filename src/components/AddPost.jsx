@@ -1,7 +1,6 @@
 import ReactStars from 'react-stars'
-const AddPost = ({ setNewPost, newPost, handleSubmit }) => {
 
-    
+const AddPost = ({ setNewPost, newPost, handleSubmit }) => {
 
     return (
         <div>

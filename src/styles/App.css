@@ -121,10 +121,10 @@ main {
 }
 
 .card-overlay {
-  position: fixed;
-  top: 28%;
+  position: relative;
   border: 2px solid var(--primary-button-hover); 
-  width: 35%;
+  width: 55%;
+  margin: 12px;
   padding: 1em;
   border-radius: 8px;
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3); 
@@ -143,10 +143,12 @@ form label {
 
 .input-wrapper {
   width: 80%;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
-
+.input-wrapper.center {
+  text-align: center;
+}
 .input-wrapper input {
   padding: 0.6em 1.2em;
   margin: 0.5em auto;
@@ -377,13 +379,24 @@ form button:disabled {
 .create-post {
   background-image: url('../assets/food-background.jpeg');
   opacity: 60%;
-  min-height: 100vh;
+  min-height: calc(100vh - 4em);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+}
+.create-post .card-overlay h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.create-post .card-overlay p {
+  margin:0;
+}
+.create-post .card-overlay button {
+  margin: 0 auto;
 }
 
 .post-detail {

@@ -39,7 +39,50 @@ const CreatePost = (props) => {
     return(
         <div className="create-post">
             <div className='card-overlay centered'>
+                <h3>New Post</h3>
+                 <div className="input-wrapper">
+                     <p>Title</p>
+                <input 
+                    onChange={handleChange}
+                    type='text'
+                    value={post.title}
+                    name='title'
+                    placeholder="Title Here..."
+                    maxlength='255'
+                />
+                    </div>
+                 <div className="input-wrapper">
+                 <p>Image (Url)</p>
+                <input 
+                    onChange={handleChange}
+                    type='text'
+                    value={post.image}
+                    name='image'
+                    placeholder="Add a Picture"
+                    maxlength='255'
+                />
+                    </div>
+                <div className="input-wrapper">
+                <p>Recipe Link</p>
+                <input
+                    onChange={handleChange}
+                    type='text'
+                    value={post.recipeUrl}
+                    name='recipeUrl'
+                    placeholder="Include a Link"
+                    maxlength='255'
+                /> 
+                     </div>
+                 <div className="input-wrapper">
+                 <p>Description</p>
+                    <textarea
+                    onChange={handleChange}
+                    value={post.description}
+                    name="description"
+                    placeholder="Tell Us About It..."
+                /> 
             <div className="input-wrapper">
+            <p>Rating</p>
                 <ReactStars
                     onChange={handleStars}
                     size={24}
@@ -51,48 +94,11 @@ const CreatePost = (props) => {
                     half={false}
                 />
                     </div>
-                 <div className="input-wrapper">
-                    <textarea
-                    onChange={handleChange}
-                    value={post.description}
-                    name="description"
-                    placeholder="Tell Us About It..."
-                /> 
                      </div>
-                 <div className="input-wrapper">
-                <input 
-                    onChange={handleChange}
-                    type='text'
-                    value={post.title}
-                    name='title'
-                    placeholder="Title Here..."
-                    maxlength='255'
-                />
-                    </div>
-                 <div className="input-wrapper">
-                <input 
-                    onChange={handleChange}
-                    type='text'
-                    value={post.image}
-                    name='image'
-                    placeholder="Add a Picture"
-                    maxlength='255'
-                />
-                    </div>
-                <div className="input-wrapper">
-                <input
-                    onChange={handleChange}
-                    type='text'
-                    value={post.recipeUrl}
-                    name='recipeUrl'
-                    placeholder="Include a Link"
-                    maxlength='255'
-                /> 
-                     </div>
+                <div className='input-wrapper center'>
+                    <button onClick={handleSubmit}>Save</button>
+                </div>
             </div>
-            <button onClick={handleSubmit}>
-                {post ? `Send` : `Create a Post`}
-            </button>
             </div>
              
 

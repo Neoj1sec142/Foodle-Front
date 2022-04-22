@@ -74,7 +74,7 @@ const PostDetail = (props) => {
     console.log(post, "POST")
     if (post.id){
     return(
-        <div className='post-detail' >
+        <div className='post-detail'>
             
             <h3>
                 {post.title ? <span className='post-title'>{post.title}</span> : <span className='post-no-title'>(No title)</span>}
@@ -84,12 +84,7 @@ const PostDetail = (props) => {
             <h3>Url: <a href={post.recipeUrl} target="_blank"> {post.recipeUrl} </a></h3>
             <h3>My Rating: {post.rating}</h3>
             <p>Description: {post.description}</p>
-            <div>
-                {props.postDetailState.postDetail.Comments.map((comm) => (
-                    <Comment commentor={comm.User.username}rating={comm.rating} comment={comm.comment} key={comm.id} /> 
-                    
-                ))} 
-            </div>
+            
             {props.postDetailState.moreComment && (
                 <div>
                     <ReactStars
@@ -101,18 +96,26 @@ const PostDetail = (props) => {
                         half={false}
                         name='rating'
                         value={props.postDetailState.newComment.rating}
-                    />
+                        />
                     <textarea 
                         onChange={handleChange}
                         name='comment'
                         value={props.postDetailState.newComment.comment}
                         placeholder="Add your thoughts..."
-                    />
+                        />
                 </div>
             )}
             <button onClick={(e)=> handleSubmit(e)}>
                 {props.postDetailState.moreComment ? 'Send' : 'Add a Comment'}
             </button>
+           
+            <div className='comments-all-container'>
+                {props.postDetailState.postDetail.Comments.map((comm) => (
+                    <Comment commentor={comm.User.username} rating={comm.rating} comment={comm.comment} key={comm.id} /> 
+                    
+                ))} 
+            </div>
+            
         </div>
         )
     }else {

@@ -34,6 +34,9 @@ body {
   padding: 0;
   background-color: var(--secondary-bg);
 }
+.main {
+  min-height: calc(100vh - 7em);
+}
 
 button {
   border: 0;
@@ -205,6 +208,9 @@ form label {
   border-color: var(--primary-bg);
   font-size: 1.1rem;
   outline: none;
+}
+.input-wrapper textarea {
+  width:100%;
 }
 
 input::placeholder {
@@ -421,6 +427,14 @@ form button:disabled {
   background-color: #aaa;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   font-weight: bold;
+}
+
+.profile-update-container {
+  margin: 24px auto 8px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* *** CREATE NEW POST *** */

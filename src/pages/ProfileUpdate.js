@@ -42,7 +42,7 @@ const ProfileUpdate = (props) => {
 
     if (userDetails.id) {
       return(
-        <form className='profile-update-container' onSubmit={handleSubmit}>
+        <form className='profile-update-container card-overlay centered' onSubmit={handleSubmit}>
           <h3>Update Profile</h3>
           
           <div className='profile-update-pic'>
@@ -50,7 +50,9 @@ const ProfileUpdate = (props) => {
               <img src={userDetails.profileImg} style={{maxWidth:'100px'}} alt='profile_img' />
               : "No image"
             }
-            <label for='profileImg'>Profile picture: </label>
+            </div>
+            <div className='input-wrapper'>
+            <label for='profileImg'>Profile picture (Url): </label>
             <input 
               onChange={handleChange}
               type='url' 
@@ -58,16 +60,19 @@ const ProfileUpdate = (props) => {
               name='profileImg' 
               maxlength='255'/>            
           </div>
-          <div className='profile-update-info'>
 
+          <div className='input-wrapper'>
             <label for='fullname'>Full name: </label>
             <input 
               onChange={handleChange}
               type='text' 
               value={userDetails.fullname} 
               name='fullname' 
-              maxlength='255'/>
-
+              maxlength='255'
+              required 
+            />
+          </div>
+          <div className='input-wrapper'>
             <label for='email'>Email: </label>
             <input 
               onChange={handleChange}
@@ -75,8 +80,10 @@ const ProfileUpdate = (props) => {
               value={userDetails.email} 
               name='email' 
               maxlength='255'/>
-
+          </div>
+          <div className='input-wrapper'>
             <label for='profileDescription'>About You: </label>
+            <br />
             <textarea 
               onChange={handleChange}
               value={userDetails.profileDescription} 
